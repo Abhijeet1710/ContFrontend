@@ -8,7 +8,8 @@
 }
 
 .vchc {
-    margin: 40px 0px;
+    margin-top: 40px;
+    margin-bottom: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
