@@ -116,7 +116,22 @@
     justify-content: flex-start;
 }
 
+.loader{
+    animation-name: rotate;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    border-radius: 50%;
+}
+
+@keyframes rotate{
+    from{ transform: rotate(-360deg); }
+    to{ transform: rotate(360deg); }
+}
+
 .btnCreate {
+    width: 100px;
+    height: 35px;
     background-color: rgb(5, 138, 5);
     border-radius: 4px;
     padding: 10px 20px;
@@ -131,6 +146,7 @@
 }
 
 .btnCancel {
+    height: 35px;
     background-color: transparent;
     border-radius: 4px;
     padding: 10px 20px;

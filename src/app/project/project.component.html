@@ -6,7 +6,7 @@
         <div class="bl vc" style="font-size: 18px; display: flex; justify-content: space-between;">
             <div *ngIf="contributors[0]" style="display: flex;">
                 <!-- <img class="profilePic" [src]="contributors[0].profilePicture"> -->
-                <span style=" margin-left: 10px; margin-top: 9px;">
+                 <span > <!-- style=" margin-left: 10px; margin-top: 9px;" -->
                     <span class="under"> {{contributors[0].userName}}</span> /
                     <span class="under"> {{projectData.projectName}} </span>
                 </span>
@@ -26,7 +26,6 @@
             <div style="border-top: 1px solid rgb(36, 36, 36); margin: 20px 0px;">
             </div>
 
-            <p> <span class="secondary"> Admin </span> {{projectData.projectAdmin}} </p>
             <p> Description : </p>
             <div class="center">
                 <p class="secondary"> {{projectData.projectDescription}} </p>

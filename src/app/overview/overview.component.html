@@ -8,9 +8,9 @@
             </div>
         </div>
         <div style="border-top: 1px solid rgb(36, 36, 36); margin: 6px 0px;"></div>
-        <ul class="tertiory">
-            <li *ngFor="let pt of aboutMe"> {{pt}} </li>
-        </ul>
+        <span class="tertiory">
+            <span *ngFor="let pt of aboutMe"> <span> ⚾ {{pt}} </span> <br> </span>
+        </span>
     </div>
 
     <div *ngIf="editingAboutMe">
@@ -37,8 +37,8 @@
     <div class="secTwo" *ngIf="myPopularProjects.length > 0">
         <div class="card" *ngFor="let project of myPopularProjects">
             <div>
-                <span class="projName" (click)="openProject(project)"> {{project.projectName}} </span> <br>
-                <span rows="10" style="font-weight: lighter; color: gray;"> {{project.projectDescription.substring(0, 200)}} ... </span>
+                <span class="projName" (click)="openProject(project)"> {{project.projectName}} </span> <br><br>
+                <span rows="10" style="font-weight: lighter; color: gray;"> {{project.projectDescription.substring(0, 100)}} ... </span>
             </div>
             <div style="margin-top: 10px;">
                 <div style="display: flex; justify-content: space-between;">
@@ -68,8 +68,8 @@
     <div class="secTwo" *ngIf="participatedPopularProjects.length > 0">
         <div class="card" *ngFor="let project of participatedPopularProjects">
             <div>
-                <span class="projName" (click)="openProject(project)"> {{project.projectName}} </span> <br>
-                <span style="font-weight: lighter; color: gray;"> {{project.projectDescription.substring(0, 200)}} ... </span>
+                <span class="projName" (click)="openProject(project)"> {{project.projectName}} </span> <br><br>
+                <span style="font-weight: lighter; color: gray;"> {{project.projectDescription.substring(0, 100)}} ... </span>
             </div>
             <div style="margin-top: 10px;">
                 <div style="display: flex; justify-content: space-between;">

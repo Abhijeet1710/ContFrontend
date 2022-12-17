@@ -9,6 +9,8 @@ import { CreateNewService } from './create-new.service';
 })
 export class CreateNewComponent implements OnInit {
 
+  creatingNewInprogres = false;
+  
   userData : any;
   projectData = {
     projectName: '',
@@ -35,6 +37,9 @@ export class CreateNewComponent implements OnInit {
   }
 
   addProject () {
+    if(this.creatingNewInprogres) return;
+    this.creatingNewInprogres = true;
+
     this.projectData.techStackRequire = this.techStackRequire.split(",");
     this.projectData.projectDomain = this.projectDomain.split(",");
     this.projectData.projectAdmin = this.userData.userId;
@@ -55,6 +60,7 @@ export class CreateNewComponent implements OnInit {
         (res) => {
             console.log(res);
             this.router.navigate(['dashboard']);
+            this.creatingNewInprogres = false;
         },
         (err) => {
           console.log(err);

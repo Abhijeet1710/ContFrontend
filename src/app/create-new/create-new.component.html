@@ -21,39 +21,49 @@
         <div class="projName">
             <div style="margin-bottom: 4px;"> Project Name* </div>
             <div>
-                <input class="projectNameIp" [(ngModel)] = "projectData.projectName" type="text">
+                <input class="projectNameIp" [(ngModel)]="projectData.projectName" type="text">
             </div>
         </div>
     </div>
 
-    <p class="secondary" style="font-size: 14px; margin-bottom: 20px;"> Great Project names are short and memorable. For Ex. <b
-            style="color: rgb(69, 98, 230);"> musical-parakeet </b></p>
+    <p class="secondary" style="font-size: 14px; margin-bottom: 20px;"> Great Project names are short and memorable. For
+        Ex. <b style="color: rgb(69, 98, 230);"> musical-parakeet </b></p>
 
     <label> Description of Project </label> <br>
     <span class="secondary" style="font-size: 14px;">Type here short summary of your project</span>
-    <textarea  [(ngModel)] = "projectData.projectDescription"  placeholder="Type here short summary of your project" class="ip" style="height: 70px; margin-top: 8px;">  </textarea>
+    <textarea [(ngModel)]="projectData.projectDescription" placeholder="Type here short summary of your project"
+        class="ip" style="height: 70px; margin-top: 8px;">  </textarea>
 
     <div style="border-top: 1px solid rgb(36, 36, 36); margin: 20px 0px;"></div>
 
     <div>
         <label> No of Openings </label> <br>
-        <input  [(ngModel)] = "projectData.teamMatesRequire"  class="ipBox" type="number" value="01"/>
+        <input [(ngModel)]="projectData.teamMatesRequire" class="ipBox" type="number" value="01" />
     </div>
 
-    <div style="margin-top: 20px;"> 
+    <div style="margin-top: 20px;">
         <label> Tech Stack Require <span class="secondary"> (Maximum 3, Seperated by <b> , </b>) </span> </label> <br>
-        <input [(ngModel)] = "techStackRequire" placeholder="Type here technology experts you are looking for. For Ex. Java, React, Angular, SpringBoot etc " class="ipBox" style="width: 90%;" type="text" />
+        <input [(ngModel)]="techStackRequire"
+            placeholder="Type here technology experts you are looking for. For Ex. Java, React, Angular, SpringBoot etc "
+            class="ipBox" style="width: 90%;" type="text" />
     </div>
 
-    <div style="margin-top: 20px;"> 
-        <label> Project Domain <span class="secondary"> (Maximum 3, Seperated by <b> , </b>) </span>  </label> <br>
-        <input [(ngModel)] = "projectDomain" placeholder="For Ex. Healthcare, Manufacturing etc." class="ipBox" style="width: 90%;" type="text" />
+    <div style="margin-top: 20px;">
+        <label> Project Domain <span class="secondary"> (Maximum 3, Seperated by <b> , </b>) </span> </label> <br>
+        <input [(ngModel)]="projectDomain" placeholder="For Ex. Healthcare, Manufacturing etc." class="ipBox"
+            style="width: 90%;" type="text" />
     </div>
 
     <div class="btns">
-        <button (click)="addProject()" class="btnCreate">Create</button>
+        <button (click)="addProject()" class="btnCreate">
+            <span *ngIf = "!creatingNewInprogres" >Create</span>
+            <span *ngIf = "creatingNewInprogres">
+                <img class="loader" width="14px" height="14px" style="padding: 0px;"
+                    src="../../assets//loader1.png" />
+            </span>
+        </button>
         <button (click)="cancel()" class="btnCancel">Cancel</button>
     </div>
 
-    
+
 </div>
