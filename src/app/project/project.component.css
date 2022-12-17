@@ -46,8 +46,8 @@
 
 .profilePic {
     border-radius: 50%;
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
     border: 1px solid black;
 }
 
@@ -80,14 +80,11 @@
     background-color: #1a2028;
 }
 
-/* .userCard {
-    padding: 8px 10px;
-    border-radius: 6px;
-} */
-
-.userCard:hover {
-    cursor: pointer;
+.userCard {
+    width: 100%;
+    margin: 0px 10px;
 }
+
 
 .filled {
     background-color: #1a2028;

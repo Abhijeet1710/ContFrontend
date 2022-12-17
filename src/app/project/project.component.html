@@ -1,6 +1,6 @@
-
-<div class="main" >
-    <div class="vchc" *ngIf="!projectData || !contributors[0]"> <img class="loader" src="../../assets/loader1.png" /> </div>
+<div class="main">
+    <div class="vchc" *ngIf="!projectData || !contributors[0]"> <img class="loader" src="../../assets/loader1.png" />
+    </div>
 
     <div *ngIf="projectData && contributors[0]">
         <div class="bl vc" style="font-size: 18px; display: flex; justify-content: space-between;">
@@ -13,7 +13,7 @@
             </div>
             <div *ngIf="hasAccesToSendRequest()">
                 <span *ngIf="!hasSentRequest()" class="chip" (click)="sendRequest()">Request</span>
-                <span *ngIf="hasSentRequest()" class="chip">Requested</span>
+                <span *ngIf="hasSentRequest()" class="chip" >Requested</span>
             </div>
         </div>
         <div style="border-top: 1px solid rgb(36, 36, 36); margin: 20px 0px;">
@@ -54,21 +54,32 @@
                         <img *ngIf="isCurrTeamOpen" width="20px" height="20px" style="margin-top: 14px;"
                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAABmJLR0QA/wD/AP+gvaeTAAACcklEQVR4nO3bvW7TYBQG4CLKTxmQWAHB1AVuoCywsnWGhZ8b4BYYQEIUuncDqQMzTFwCYugGAyMIRAEhdUAdgIchiVSVpk3iz7Gdvo+U1ed8J7H9vU4yNxcRERERERERERERERERERERUQEWsILN/msFC033NVNwFm/8bwMXm+5vJmAJn/cY8sAmrjXdZ6fhBn7tM+SBbdxtut/OwVE8GmHAu63hWNP9dwJO4+UEQx54jTNNr6PVsIh3FYY88AGXm15PK+E6fhYY8sAWlpteV6vgHn4XHPLAX9zHkabX2CicwLMaBrzbC5xqer2NMDyE1OXwhRsHh5C6HJ5wg1t6AWNSf/qvSW3jdtNzqI3JQ8hOW1hWZocye+FG9RBCb298accxF/G+4jFnJ9woE0L2HIjeG/iq4rG7H25M4RRX8JI0zdkUo3oIGeuJHG4a7UnfMN0KN8qEkE1cnaB2iW1j+8ONMiFkAxda0EM7w40WfZqUO6vaFW6M/k3IMLVcH035PlEbHbjj63q4UUMIqbHXboYbNYaQGnvuVrjR4VNRBy51g0Zn4uaireEG81iv0Bi9rd9S0cYqwBXVt6PrmC/Z1MOKDb3FuWINFYLz/d6qeFCyoY8VGml1pMVJPK+wvk8lm5lEpx7SqHD/KdnEuDr52NGEO6qSDYxjKiGkLiYINyWLj2omvhoyZrgpWXgUa0pudRpmjHBTsuh+tnGnWLGWMUK4KVns+5AarQohddELN1+GzOBbyUJP9yjQyhBSF8PDzeOSRY5jtf+u/ugP/tD9I0rvn2Gr/Rl8xROz9iOciIiIiIiIiIiIiIiIiIiIiIiIOMg/ZHt9UUs2H+gAAAAASUVORK5CYII=">
 
-                    </span><br>
+                    </span> <br>
                     <div *ngIf="isCurrTeamOpen">
-                        <div class="userCard" style="padding: 0px 10px;"
-                            *ngFor="let user of contributors; let i = index;">
-                            <span style="display: flex; justify-content: space-between;">
-                                <span class="bl" style="font-size: 22px;">{{ user.name }}</span>
-                                <span class="secondary">
-                                    <span class="chip" *ngIf="user.userId == projectData.projectAdmin"> Admin </span>
-                                    <span class="chip" *ngIf="user.userId != projectData.projectAdmin"> Member </span>
-                                </span>
-                            </span>
+                        <div class="userCard" *ngFor="let user of contributors; let i = index;">
+                            <div style="display: flex;">
+                                <div style="margin-right: 14px;">
+                                    <img class="profilePic" [src]="user.profilePicture" />
+                                </div>
+                                <div>
+                                    <span>
+                                        <span class="bl" style="font-size: 22px;">{{ user.name }}</span>
+                                        <span class="secondary" style="margin-left: 40px;">
+                                            <span class="chip" *ngIf="user.userId == projectData.projectAdmin"> Admin
+                                            </span>
+                                            <span class="chip" *ngIf="user.userId != projectData.projectAdmin"> Member
+                                            </span>
+                                        </span>
+                                    </span>
+                                    
+                                    <br>
+                                    <span class="secondary">{{ user.userName }}</span>
+                                    <br> <br>
+                                    <div style="margin-bottom: 10px;" class="secondary">{{
+                                        user.address }}</div>
 
-                            <span class="secondary">{{ user.userName }}</span>
-                            <br> <br>
-                            <span *ngIf="user.company" class="secondary">{{ user.company }}</span>
+                                </div>
+                            </div>
                             <div *ngIf="i < contributors.length-1"
                                 style="border-top: 1px solid rgb(36, 36, 36); margin-bottom: 20px; margin-top: 10px;">
                             </div>
