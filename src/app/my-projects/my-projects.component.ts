@@ -111,4 +111,9 @@ export class MyProjectsComponent implements OnInit {
     this.router.navigate(['/new']);
   }
 
+  openProject(projectToOpen) {
+    console.log(projectToOpen);
+    this.router.navigate(['dashboard/project/'+projectToOpen.projectId]);
+  }
+
 }
