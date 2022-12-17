@@ -1,136 +1,143 @@
-<div class="main" *ngIf="projectData">
-    <div class="bl vc" style="font-size: 18px; display: flex; justify-content: space-between;">
-        <div *ngIf = "contributors[0]"  style="display: flex;">
-            <img class="profilePic" [src]="contributors[0].profilePicture">
-            <span style=" margin-left: 10px; margin-top: 10px;">
-                <span  class="under" style="font-size: 28px;"> {{contributors[0].userName}}</span> /
-                <span class="under" style="font-size: 28px;"> {{projectData.projectName}} </span>
-            </span>
-        </div>
-        <div *ngIf="hasAccesToSendRequest()">
-            <span *ngIf="!hasSentRequest()" class="chip" (click)="sendRequest()">Request</span>
-            <span *ngIf="hasSentRequest()" class="chip">Requested</span>
-        </div>
-    </div>
-    <div style="border-top: 1px solid rgb(36, 36, 36); margin: 20px 0px;">
-    </div>
-    <div>
-        <div>
-            <span style="margin-left: 4px; margin-top: 8px;" *ngFor="let t of projectData.techStackRequire" class="chip"> {{t}} </span>
+
+<div class="main" >
+    <div class="vchc" *ngIf="!projectData || !contributors[0]"> <img class="loader" src="../../assets/loader1.png" /> </div>
+
+    <div *ngIf="projectData && contributors[0]">
+        <div class="bl vc" style="font-size: 18px; display: flex; justify-content: space-between;">
+            <div *ngIf="contributors[0]" style="display: flex;">
+                <img class="profilePic" [src]="contributors[0].profilePicture">
+                <span style=" margin-left: 10px; margin-top: 9px;">
+                    <span class="under"> {{contributors[0].userName}}</span> /
+                    <span class="under"> {{projectData.projectName}} </span>
+                </span>
+            </div>
+            <div *ngIf="hasAccesToSendRequest()">
+                <span *ngIf="!hasSentRequest()" class="chip" (click)="sendRequest()">Request</span>
+                <span *ngIf="hasSentRequest()" class="chip">Requested</span>
+            </div>
         </div>
         <div style="border-top: 1px solid rgb(36, 36, 36); margin: 20px 0px;">
         </div>
-
-        <p> <span class="secondary"> Admin </span> {{projectData.projectAdmin}} </p>
-        <p> Description : </p>
-        <div class="center">
-            <p class="secondary"> {{projectData.projectDescription}} </p>
-        </div>
         <div>
-            <p> Number of Openings : <span class="secondary" style="font-size: 20px;">
-                    00{{projectData.teamMatesRequire}} </span>
-            </p>
-        </div>
-        <div>
-            <p> Current team size : <span class="secondary" style="font-size: 20px;">
-                    00{{projectData.projectContributors.length}} </span>
-            </p>
-        </div>
-        <div>
-            <div class="center" *ngIf="contributors.length > 0">
-                <span (click)="isCurrTeamOpen = !isCurrTeamOpen" class="box" [ngClass]="{'filled': isCurrTeamOpen}">
-                    <div style="display: flex; align-items: center;">
-                        <p> Current Team Members </p>
-                        <p class="chip" style="margin-left: 8px;">0{{ contributors.length }}</p>
-                    </div>
-                    <img *ngIf="!isCurrTeamOpen" width="20px" height="20px" style="margin-top: 14px;"
-                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAA60lEQVRIie3UPUoDQRyG8WgRLAQbIfZ7ACtLrbxCSluvkCt4B0t7wcJSbSIkhWdIY6NgKYJIfjYTWCbrZHSnEeaB6f7v+8x+zAwGlUqlUgLc4wlNwc4mdN6lhla84bSA9ASvq9IcMXxh0kN6js92YWp4Zp1LDH8hHIZMzCwV2sV1R+gRBxnSfTx05G+xtym8hQmWUfgZR4ncIRZRZokLbG/adLtojPeo6ANnfWZz5cmn+OvbyZWPMO34bjdhxUwx6iVtyX/6U2OusFNEGm1g7WwGep35XPkxXlrSIrdcrrzBPKxi93qlUvlffANtCRmg5ZHN/QAAAABJRU5ErkJggg==">
+            <div>
+                <span style="margin-left: 4px; margin-top: 8px;" *ngFor="let t of projectData.techStackRequire"
+                    class="chip"> {{t}} </span>
+            </div>
+            <div style="border-top: 1px solid rgb(36, 36, 36); margin: 20px 0px;">
+            </div>
 
-                    <img *ngIf="isCurrTeamOpen" width="20px" height="20px" style="margin-top: 14px;"
-                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAABmJLR0QA/wD/AP+gvaeTAAACcklEQVR4nO3bvW7TYBQG4CLKTxmQWAHB1AVuoCywsnWGhZ8b4BYYQEIUuncDqQMzTFwCYugGAyMIRAEhdUAdgIchiVSVpk3iz7Gdvo+U1ed8J7H9vU4yNxcRERERERERERERERERERERUQEWsILN/msFC033NVNwFm/8bwMXm+5vJmAJn/cY8sAmrjXdZ6fhBn7tM+SBbdxtut/OwVE8GmHAu63hWNP9dwJO4+UEQx54jTNNr6PVsIh3FYY88AGXm15PK+E6fhYY8sAWlpteV6vgHn4XHPLAX9zHkabX2CicwLMaBrzbC5xqer2NMDyE1OXwhRsHh5C6HJ5wg1t6AWNSf/qvSW3jdtNzqI3JQ8hOW1hWZocye+FG9RBCb298accxF/G+4jFnJ9woE0L2HIjeG/iq4rG7H25M4RRX8JI0zdkUo3oIGeuJHG4a7UnfMN0KN8qEkE1cnaB2iW1j+8ONMiFkAxda0EM7w40WfZqUO6vaFW6M/k3IMLVcH035PlEbHbjj63q4UUMIqbHXboYbNYaQGnvuVrjR4VNRBy51g0Zn4uaireEG81iv0Bi9rd9S0cYqwBXVt6PrmC/Z1MOKDb3FuWINFYLz/d6qeFCyoY8VGml1pMVJPK+wvk8lm5lEpx7SqHD/KdnEuDr52NGEO6qSDYxjKiGkLiYINyWLj2omvhoyZrgpWXgUa0pudRpmjHBTsuh+tnGnWLGWMUK4KVns+5AarQohddELN1+GzOBbyUJP9yjQyhBSF8PDzeOSRY5jtf+u/ugP/tD9I0rvn2Gr/Rl8xROz9iOciIiIiIiIiIiIiIiIiIiIiIiIOMg/ZHt9UUs2H+gAAAAASUVORK5CYII=">
+            <p> <span class="secondary"> Admin </span> {{projectData.projectAdmin}} </p>
+            <p> Description : </p>
+            <div class="center">
+                <p class="secondary"> {{projectData.projectDescription}} </p>
+            </div>
+            <div>
+                <p> Number of Openings : <span class="secondary" style="font-size: 20px;">
+                        00{{projectData.teamMatesRequire}} </span>
+                </p>
+            </div>
+            <div>
+                <p> Current team size : <span class="secondary" style="font-size: 20px;">
+                        00{{projectData.projectContributors.length}} </span>
+                </p>
+            </div>
+            <div>
+                <div class="" *ngIf="contributors.length > 0">
+                    <span (click)="isCurrTeamOpen = !isCurrTeamOpen" class="box" [ngClass]="{'filled': isCurrTeamOpen}">
+                        <div style="display: flex; align-items: center;">
+                            <p> Current Team Members </p>
+                            <p class="chip" style="margin-left: 8px;">0{{ contributors.length }}</p>
+                        </div>
+                        <img *ngIf="!isCurrTeamOpen" width="20px" height="20px" style="margin-top: 14px;"
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAA60lEQVRIie3UPUoDQRyG8WgRLAQbIfZ7ACtLrbxCSluvkCt4B0t7wcJSbSIkhWdIY6NgKYJIfjYTWCbrZHSnEeaB6f7v+8x+zAwGlUqlUgLc4wlNwc4mdN6lhla84bSA9ASvq9IcMXxh0kN6js92YWp4Zp1LDH8hHIZMzCwV2sV1R+gRBxnSfTx05G+xtym8hQmWUfgZR4ncIRZRZokLbG/adLtojPeo6ANnfWZz5cmn+OvbyZWPMO34bjdhxUwx6iVtyX/6U2OusFNEGm1g7WwGep35XPkxXlrSIrdcrrzBPKxi93qlUvlffANtCRmg5ZHN/QAAAABJRU5ErkJggg==">
 
-                </span><br>
-                <div *ngIf="isCurrTeamOpen">
-                    <div class="userCard" style="padding: 0px 10px;" *ngFor="let user of contributors; let i = index;">
-                        <span style="display: flex; justify-content: space-between;">
-                            <span class="bl" style="font-size: 22px;">{{ user.name }}</span>
-                            <span class="secondary">
-                                <span class="chip" *ngIf="user.userId == projectData.projectAdmin"> Admin </span>
-                                <span class="chip" *ngIf="user.userId != projectData.projectAdmin"> Member </span>
+                        <img *ngIf="isCurrTeamOpen" width="20px" height="20px" style="margin-top: 14px;"
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAABmJLR0QA/wD/AP+gvaeTAAACcklEQVR4nO3bvW7TYBQG4CLKTxmQWAHB1AVuoCywsnWGhZ8b4BYYQEIUuncDqQMzTFwCYugGAyMIRAEhdUAdgIchiVSVpk3iz7Gdvo+U1ed8J7H9vU4yNxcRERERERERERERERERERERUQEWsILN/msFC033NVNwFm/8bwMXm+5vJmAJn/cY8sAmrjXdZ6fhBn7tM+SBbdxtut/OwVE8GmHAu63hWNP9dwJO4+UEQx54jTNNr6PVsIh3FYY88AGXm15PK+E6fhYY8sAWlpteV6vgHn4XHPLAX9zHkabX2CicwLMaBrzbC5xqer2NMDyE1OXwhRsHh5C6HJ5wg1t6AWNSf/qvSW3jdtNzqI3JQ8hOW1hWZocye+FG9RBCb298accxF/G+4jFnJ9woE0L2HIjeG/iq4rG7H25M4RRX8JI0zdkUo3oIGeuJHG4a7UnfMN0KN8qEkE1cnaB2iW1j+8ONMiFkAxda0EM7w40WfZqUO6vaFW6M/k3IMLVcH035PlEbHbjj63q4UUMIqbHXboYbNYaQGnvuVrjR4VNRBy51g0Zn4uaireEG81iv0Bi9rd9S0cYqwBXVt6PrmC/Z1MOKDb3FuWINFYLz/d6qeFCyoY8VGml1pMVJPK+wvk8lm5lEpx7SqHD/KdnEuDr52NGEO6qSDYxjKiGkLiYINyWLj2omvhoyZrgpWXgUa0pudRpmjHBTsuh+tnGnWLGWMUK4KVns+5AarQohddELN1+GzOBbyUJP9yjQyhBSF8PDzeOSRY5jtf+u/ugP/tD9I0rvn2Gr/Rl8xROz9iOciIiIiIiIiIiIiIiIiIiIiIiIOMg/ZHt9UUs2H+gAAAAASUVORK5CYII=">
+
+                    </span><br>
+                    <div *ngIf="isCurrTeamOpen">
+                        <div class="userCard" style="padding: 0px 10px;"
+                            *ngFor="let user of contributors; let i = index;">
+                            <span style="display: flex; justify-content: space-between;">
+                                <span class="bl" style="font-size: 22px;">{{ user.name }}</span>
+                                <span class="secondary">
+                                    <span class="chip" *ngIf="user.userId == projectData.projectAdmin"> Admin </span>
+                                    <span class="chip" *ngIf="user.userId != projectData.projectAdmin"> Member </span>
+                                </span>
                             </span>
-                        </span>
 
-                        <span class="secondary">{{ user.userName }}</span>
-                        <br> <br>
-                        <span *ngIf="user.company" class="secondary">{{ user.company }}</span>
-                        <div *ngIf="i < contributors.length-1"
-                            style="border-top: 1px solid rgb(36, 36, 36); margin-bottom: 20px; margin-top: 10px;">
+                            <span class="secondary">{{ user.userName }}</span>
+                            <br> <br>
+                            <span *ngIf="user.company" class="secondary">{{ user.company }}</span>
+                            <div *ngIf="i < contributors.length-1"
+                                style="border-top: 1px solid rgb(36, 36, 36); margin-bottom: 20px; margin-top: 10px;">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="" *ngIf = "isAdmin || isContributor"> <!-- *ngIf = "requests.length > 0"  -->
-                <span (click)="isRequestsOpen = !isRequestsOpen" class="box" [ngClass]="{'filled': isRequestsOpen}">
-                    <div style="display: flex; align-items: center;">
-                        <p>Contribution Requests</p>
-                        <p class="chip" style="margin-left: 8px;">0{{ requests.length }}</p>
-                    </div>
+                <div class="" *ngIf="isAdmin || isContributor"> <!-- *ngIf = "requests.length > 0"  -->
+                    <span (click)="isRequestsOpen = !isRequestsOpen" class="box" [ngClass]="{'filled': isRequestsOpen}">
+                        <div style="display: flex; align-items: center;">
+                            <p>Contribution Requests</p>
+                            <p class="chip" style="margin-left: 8px;">0{{ requests.length }}</p>
+                        </div>
 
-                    <img *ngIf="!isRequestsOpen" width="20px" height="20px" style="margin-top: 14px;"
-                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAA60lEQVRIie3UPUoDQRyG8WgRLAQbIfZ7ACtLrbxCSluvkCt4B0t7wcJSbSIkhWdIY6NgKYJIfjYTWCbrZHSnEeaB6f7v+8x+zAwGlUqlUgLc4wlNwc4mdN6lhla84bSA9ASvq9IcMXxh0kN6js92YWp4Zp1LDH8hHIZMzCwV2sV1R+gRBxnSfTx05G+xtym8hQmWUfgZR4ncIRZRZokLbG/adLtojPeo6ANnfWZz5cmn+OvbyZWPMO34bjdhxUwx6iVtyX/6U2OusFNEGm1g7WwGep35XPkxXlrSIrdcrrzBPKxi93qlUvlffANtCRmg5ZHN/QAAAABJRU5ErkJggg==">
+                        <img *ngIf="!isRequestsOpen" width="20px" height="20px" style="margin-top: 14px;"
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAA60lEQVRIie3UPUoDQRyG8WgRLAQbIfZ7ACtLrbxCSluvkCt4B0t7wcJSbSIkhWdIY6NgKYJIfjYTWCbrZHSnEeaB6f7v+8x+zAwGlUqlUgLc4wlNwc4mdN6lhla84bSA9ASvq9IcMXxh0kN6js92YWp4Zp1LDH8hHIZMzCwV2sV1R+gRBxnSfTx05G+xtym8hQmWUfgZR4ncIRZRZokLbG/adLtojPeo6ANnfWZz5cmn+OvbyZWPMO34bjdhxUwx6iVtyX/6U2OusFNEGm1g7WwGep35XPkxXlrSIrdcrrzBPKxi93qlUvlffANtCRmg5ZHN/QAAAABJRU5ErkJggg==">
 
-                    <img *ngIf="isRequestsOpen" width="20px" height="20px" style="margin-top: 14px;"
-                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAABmJLR0QA/wD/AP+gvaeTAAACcklEQVR4nO3bvW7TYBQG4CLKTxmQWAHB1AVuoCywsnWGhZ8b4BYYQEIUuncDqQMzTFwCYugGAyMIRAEhdUAdgIchiVSVpk3iz7Gdvo+U1ed8J7H9vU4yNxcRERERERERERERERERERERUQEWsILN/msFC033NVNwFm/8bwMXm+5vJmAJn/cY8sAmrjXdZ6fhBn7tM+SBbdxtut/OwVE8GmHAu63hWNP9dwJO4+UEQx54jTNNr6PVsIh3FYY88AGXm15PK+E6fhYY8sAWlpteV6vgHn4XHPLAX9zHkabX2CicwLMaBrzbC5xqer2NMDyE1OXwhRsHh5C6HJ5wg1t6AWNSf/qvSW3jdtNzqI3JQ8hOW1hWZocye+FG9RBCb298accxF/G+4jFnJ9woE0L2HIjeG/iq4rG7H25M4RRX8JI0zdkUo3oIGeuJHG4a7UnfMN0KN8qEkE1cnaB2iW1j+8ONMiFkAxda0EM7w40WfZqUO6vaFW6M/k3IMLVcH035PlEbHbjj63q4UUMIqbHXboYbNYaQGnvuVrjR4VNRBy51g0Zn4uaireEG81iv0Bi9rd9S0cYqwBXVt6PrmC/Z1MOKDb3FuWINFYLz/d6qeFCyoY8VGml1pMVJPK+wvk8lm5lEpx7SqHD/KdnEuDr52NGEO6qSDYxjKiGkLiYINyWLj2omvhoyZrgpWXgUa0pudRpmjHBTsuh+tnGnWLGWMUK4KVns+5AarQohddELN1+GzOBbyUJP9yjQyhBSF8PDzeOSRY5jtf+u/ugP/tD9I0rvn2Gr/Rl8xROz9iOciIiIiIiIiIiIiIiIiIiIiIiIOMg/ZHt9UUs2H+gAAAAASUVORK5CYII=">
+                        <img *ngIf="isRequestsOpen" width="20px" height="20px" style="margin-top: 14px;"
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAABmJLR0QA/wD/AP+gvaeTAAACcklEQVR4nO3bvW7TYBQG4CLKTxmQWAHB1AVuoCywsnWGhZ8b4BYYQEIUuncDqQMzTFwCYugGAyMIRAEhdUAdgIchiVSVpk3iz7Gdvo+U1ed8J7H9vU4yNxcRERERERERERERERERERERUQEWsILN/msFC033NVNwFm/8bwMXm+5vJmAJn/cY8sAmrjXdZ6fhBn7tM+SBbdxtut/OwVE8GmHAu63hWNP9dwJO4+UEQx54jTNNr6PVsIh3FYY88AGXm15PK+E6fhYY8sAWlpteV6vgHn4XHPLAX9zHkabX2CicwLMaBrzbC5xqer2NMDyE1OXwhRsHh5C6HJ5wg1t6AWNSf/qvSW3jdtNzqI3JQ8hOW1hWZocye+FG9RBCb298accxF/G+4jFnJ9woE0L2HIjeG/iq4rG7H25M4RRX8JI0zdkUo3oIGeuJHG4a7UnfMN0KN8qEkE1cnaB2iW1j+8ONMiFkAxda0EM7w40WfZqUO6vaFW6M/k3IMLVcH035PlEbHbjj63q4UUMIqbHXboYbNYaQGnvuVrjR4VNRBy51g0Zn4uaireEG81iv0Bi9rd9S0cYqwBXVt6PrmC/Z1MOKDb3FuWINFYLz/d6qeFCyoY8VGml1pMVJPK+wvk8lm5lEpx7SqHD/KdnEuDr52NGEO6qSDYxjKiGkLiYINyWLj2omvhoyZrgpWXgUa0pudRpmjHBTsuh+tnGnWLGWMUK4KVns+5AarQohddELN1+GzOBbyUJP9yjQyhBSF8PDzeOSRY5jtf+u/ugP/tD9I0rvn2Gr/Rl8xROz9iOciIiIiIiIiIiIiIiIiIiIiIiIOMg/ZHt9UUs2H+gAAAAASUVORK5CYII=">
 
-                </span><br>
-                <div *ngIf="isRequestsOpen">
-                    <div class="userCard" style="padding: 0px 10px;" *ngFor="let user of requests; let i = index;">
-                        <span style="display: flex; justify-content: space-between;">
-                            <span class="bl" style="font-size: 22px;">{{ user.name }}</span>
-                            <span class="secondary" *ngIf="hasAccesToAcceptRequest()">
-                                <span class="chip" (click)="acceptRequest(user)"> Accept </span>
+                    </span><br>
+                    <div *ngIf="isRequestsOpen">
+                        <div class="userCard" style="padding: 0px 10px;" *ngFor="let user of requests; let i = index;">
+                            <span style="display: flex; justify-content: space-between;">
+                                <span class="bl" style="font-size: 22px;">{{ user.name }}</span>
+                                <span class="secondary" *ngIf="hasAccesToAcceptRequest()">
+                                    <span class="chip" (click)="acceptRequest(user)"> Accept </span>
+                                </span>
                             </span>
-                        </span>
 
-                        <span class="secondary">{{ user.userName }}</span>
-                        <br> <br>
-                        <span *ngIf="user.company" class="secondary">{{ user.company }}</span>
-                        <div *ngIf="i < contributors.length-1"
-                            style="border-top: 1px solid rgb(36, 36, 36); margin-bottom: 20px; margin-top: 10px;">
+                            <span class="secondary">{{ user.userName }}</span>
+                            <br> <br>
+                            <span *ngIf="user.company" class="secondary">{{ user.company }}</span>
+                            <div *ngIf="i < contributors.length-1"
+                                style="border-top: 1px solid rgb(36, 36, 36); margin-bottom: 20px; margin-top: 10px;">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class=""> <!-- *ngIf = "likedBy.length > 0" -->
-                <span (click)="isLikedByOpen = !isLikedByOpen" class="box" [ngClass]="{'filled': isLikedByOpen}">
-                    <div style="display: flex; align-items: center;">
-                        <p>Likes</p>
-                        <p class="chip" style="margin-left: 8px;">0{{ likedBy.length }}</p>
-                    </div>
+                <div class=""> <!-- *ngIf = "likedBy.length > 0" -->
+                    <span (click)="isLikedByOpen = !isLikedByOpen" class="box" [ngClass]="{'filled': isLikedByOpen}">
+                        <div style="display: flex; align-items: center;">
+                            <p>Likes</p>
+                            <p class="chip" style="margin-left: 8px;">0{{ likedBy.length }}</p>
+                        </div>
 
-                    <img *ngIf="!isLikedByOpen" width="20px" height="20px" style="margin-top: 14px;"
-                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAA60lEQVRIie3UPUoDQRyG8WgRLAQbIfZ7ACtLrbxCSluvkCt4B0t7wcJSbSIkhWdIY6NgKYJIfjYTWCbrZHSnEeaB6f7v+8x+zAwGlUqlUgLc4wlNwc4mdN6lhla84bSA9ASvq9IcMXxh0kN6js92YWp4Zp1LDH8hHIZMzCwV2sV1R+gRBxnSfTx05G+xtym8hQmWUfgZR4ncIRZRZokLbG/adLtojPeo6ANnfWZz5cmn+OvbyZWPMO34bjdhxUwx6iVtyX/6U2OusFNEGm1g7WwGep35XPkxXlrSIrdcrrzBPKxi93qlUvlffANtCRmg5ZHN/QAAAABJRU5ErkJggg==">
+                        <img *ngIf="!isLikedByOpen" width="20px" height="20px" style="margin-top: 14px;"
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAA60lEQVRIie3UPUoDQRyG8WgRLAQbIfZ7ACtLrbxCSluvkCt4B0t7wcJSbSIkhWdIY6NgKYJIfjYTWCbrZHSnEeaB6f7v+8x+zAwGlUqlUgLc4wlNwc4mdN6lhla84bSA9ASvq9IcMXxh0kN6js92YWp4Zp1LDH8hHIZMzCwV2sV1R+gRBxnSfTx05G+xtym8hQmWUfgZR4ncIRZRZokLbG/adLtojPeo6ANnfWZz5cmn+OvbyZWPMO34bjdhxUwx6iVtyX/6U2OusFNEGm1g7WwGep35XPkxXlrSIrdcrrzBPKxi93qlUvlffANtCRmg5ZHN/QAAAABJRU5ErkJggg==">
 
-                    <img *ngIf="isLikedByOpen" width="20px" height="20px" style="margin-top: 14px;"
-                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAABmJLR0QA/wD/AP+gvaeTAAACcklEQVR4nO3bvW7TYBQG4CLKTxmQWAHB1AVuoCywsnWGhZ8b4BYYQEIUuncDqQMzTFwCYugGAyMIRAEhdUAdgIchiVSVpk3iz7Gdvo+U1ed8J7H9vU4yNxcRERERERERERERERERERERUQEWsILN/msFC033NVNwFm/8bwMXm+5vJmAJn/cY8sAmrjXdZ6fhBn7tM+SBbdxtut/OwVE8GmHAu63hWNP9dwJO4+UEQx54jTNNr6PVsIh3FYY88AGXm15PK+E6fhYY8sAWlpteV6vgHn4XHPLAX9zHkabX2CicwLMaBrzbC5xqer2NMDyE1OXwhRsHh5C6HJ5wg1t6AWNSf/qvSW3jdtNzqI3JQ8hOW1hWZocye+FG9RBCb298accxF/G+4jFnJ9woE0L2HIjeG/iq4rG7H25M4RRX8JI0zdkUo3oIGeuJHG4a7UnfMN0KN8qEkE1cnaB2iW1j+8ONMiFkAxda0EM7w40WfZqUO6vaFW6M/k3IMLVcH035PlEbHbjj63q4UUMIqbHXboYbNYaQGnvuVrjR4VNRBy51g0Zn4uaireEG81iv0Bi9rd9S0cYqwBXVt6PrmC/Z1MOKDb3FuWINFYLz/d6qeFCyoY8VGml1pMVJPK+wvk8lm5lEpx7SqHD/KdnEuDr52NGEO6qSDYxjKiGkLiYINyWLj2omvhoyZrgpWXgUa0pudRpmjHBTsuh+tnGnWLGWMUK4KVns+5AarQohddELN1+GzOBbyUJP9yjQyhBSF8PDzeOSRY5jtf+u/ugP/tD9I0rvn2Gr/Rl8xROz9iOciIiIiIiIiIiIiIiIiIiIiIiIOMg/ZHt9UUs2H+gAAAAASUVORK5CYII=">
+                        <img *ngIf="isLikedByOpen" width="20px" height="20px" style="margin-top: 14px;"
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAABmJLR0QA/wD/AP+gvaeTAAACcklEQVR4nO3bvW7TYBQG4CLKTxmQWAHB1AVuoCywsnWGhZ8b4BYYQEIUuncDqQMzTFwCYugGAyMIRAEhdUAdgIchiVSVpk3iz7Gdvo+U1ed8J7H9vU4yNxcRERERERERERERERERERERUQEWsILN/msFC033NVNwFm/8bwMXm+5vJmAJn/cY8sAmrjXdZ6fhBn7tM+SBbdxtut/OwVE8GmHAu63hWNP9dwJO4+UEQx54jTNNr6PVsIh3FYY88AGXm15PK+E6fhYY8sAWlpteV6vgHn4XHPLAX9zHkabX2CicwLMaBrzbC5xqer2NMDyE1OXwhRsHh5C6HJ5wg1t6AWNSf/qvSW3jdtNzqI3JQ8hOW1hWZocye+FG9RBCb298accxF/G+4jFnJ9woE0L2HIjeG/iq4rG7H25M4RRX8JI0zdkUo3oIGeuJHG4a7UnfMN0KN8qEkE1cnaB2iW1j+8ONMiFkAxda0EM7w40WfZqUO6vaFW6M/k3IMLVcH035PlEbHbjj63q4UUMIqbHXboYbNYaQGnvuVrjR4VNRBy51g0Zn4uaireEG81iv0Bi9rd9S0cYqwBXVt6PrmC/Z1MOKDb3FuWINFYLz/d6qeFCyoY8VGml1pMVJPK+wvk8lm5lEpx7SqHD/KdnEuDr52NGEO6qSDYxjKiGkLiYINyWLj2omvhoyZrgpWXgUa0pudRpmjHBTsuh+tnGnWLGWMUK4KVns+5AarQohddELN1+GzOBbyUJP9yjQyhBSF8PDzeOSRY5jtf+u/ugP/tD9I0rvn2Gr/Rl8xROz9iOciIiIiIiIiIiIiIiIiIiIiIiIOMg/ZHt9UUs2H+gAAAAASUVORK5CYII=">
 
-                </span><br>
-                <div *ngIf="isLikedByOpen">
-                    <div class="userCard" style="padding: 0px 10px;" *ngFor="let user of likedBy; let i = index;">
-                        <span style="display: flex; justify-content: space-between;">
-                            <span class="bl" style="font-size: 22px;">{{ user.name }}</span>
-                            <span class="secondary" *ngIf="hasAccesToAcceptRequest()">
-                                <span class="chip" (click)="acceptRequest(user)"> Accept </span>
+                    </span><br>
+                    <div *ngIf="isLikedByOpen">
+                        <div class="userCard" style="padding: 0px 10px;" *ngFor="let user of likedBy; let i = index;">
+                            <span style="display: flex; justify-content: space-between;">
+                                <span class="bl" style="font-size: 22px;">{{ user.name }}</span>
+                                <span class="secondary" *ngIf="hasAccesToAcceptRequest()">
+                                    <span class="chip" (click)="acceptRequest(user)"> Accept </span>
+                                </span>
                             </span>
-                        </span>
 
-                        <span class="secondary">{{ user.userName }}</span>
-                        <br> <br>
-                        <span *ngIf="user.company" class="secondary">{{ user.company }}</span>
-                        <div *ngIf="i < likedBy.length-1"
-                            style="border-top: 1px solid rgb(36, 36, 36); margin-bottom: 20px; margin-top: 10px;">
+                            <span class="secondary">{{ user.userName }}</span>
+                            <br> <br>
+                            <span *ngIf="user.company" class="secondary">{{ user.company }}</span>
+                            <div *ngIf="i < likedBy.length-1"
+                                style="border-top: 1px solid rgb(36, 36, 36); margin-bottom: 20px; margin-top: 10px;">
+                            </div>
                         </div>
                     </div>
                 </div>

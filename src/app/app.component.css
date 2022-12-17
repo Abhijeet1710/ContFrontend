@@ -52,10 +52,8 @@
 
  .footer {
      display: flex;
-     padding: 38px 0px;
-     width: 100%;
-     margin: auto;
      flex-direction: column;
+     align-items: center;
  }
 
  .footer>span {
@@ -72,7 +70,6 @@
          width: 84%;
          height: 100%;
          margin: auto;
-
      }
 
      .navbar {
@@ -92,6 +89,7 @@
          flex-direction: row;
          width: 80%;
          margin: auto;
+         padding: 38px 0px;
      }
 
      .footer>span {

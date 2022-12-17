@@ -7,12 +7,35 @@
     width: 100%;
 }
 
+.vchc {
+    height: 60vh;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 .profilePic {
     border-radius: 50%;
     height: 60px;
     width: 60px;
     margin-bottom: 20px;
     border: 1px solid black;
+}
+
+.loader{
+    animation-name: rotate;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    border-radius: 50%;
+}
+
+@keyframes rotate{
+    from{ transform: rotate(-360deg); }
+    to{ transform: rotate(360deg); }
 }
 
 p, span {

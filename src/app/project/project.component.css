@@ -2,6 +2,32 @@
     display: flex;
 }
 
+.vchc {
+    height: 60vh;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader{
+    animation-name: rotate;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    border-radius: 50%;
+}
+
+@keyframes rotate{
+    from{ transform: rotate(-360deg); }
+    to{ transform: rotate(360deg); }
+}
+
+.under {
+    font-size: 18px;
+}
+
 .under:hover {
     text-decoration: underline;
     cursor: pointer;
@@ -20,8 +46,8 @@
 
 .profilePic {
     border-radius: 50%;
-    height: 50px;
-    width: 50px;
+    height: 30px;
+    width: 30px;
     border: 1px solid black;
 }
 
@@ -92,6 +118,15 @@
     .center {
         width: 80%;
         margin: auto;
+    }
+
+    .under {
+        font-size: 24px;
+    }
+
+    .profilePic {
+        height: 50px;
+        width: 50px;
     }
 
 }
