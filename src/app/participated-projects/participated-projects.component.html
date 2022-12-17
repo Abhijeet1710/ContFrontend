@@ -1,0 +1,55 @@
+<div class="myProjectContent">
+    <div *ngIf="participatedProjects.length > 0">
+        <div class="box">
+            <div class="searchSec">
+                <input [(ngModel)]="variable" (ngModelChange)="filterData($event)" class="searchBox" type="text"
+                    placeholder="Find a Project ...">
+                    <button routerLink="/new" class="btnCreate">Create</button>
+            </div>
+
+            <div *ngIf="variable.length > 0" style="margin-bottom: 30px;">
+                <div style="border-top: 1px solid rgb(68, 68, 68); margin-bottom: 20px;"></div>
+                <div class="filterMsg">
+                    <span style="font-weight: lighter;"> <b> {{filtered.length}} </b> results for project matching <b>
+                            {{variable}} </b> sorted by last updated </span>
+                    <span style="display: flex; align-items: center; cursor: pointer; margin-bottom: 4px;" class="clr"
+                        (click)="clearFilter()">
+                        <img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAuElEQVRIie2UTQ7CIBCF33iOxrULPETryngPL8zGPU00eIjnwomphCKUsjF9KzIT3jc/BGBTiUheSI5cLkfyPPWUAOAAdJV1OhHZzwFYaf42Ffn47tYwTOkX4AagB/CI5J4ATgBsNi2ytEHjhqSfxD1Jo7khvFQC8CSPmjuQvM/EFgPCak1w9rELpYCvTlKVxwDNX1FOB01H1HzJzZ+pVYPYKLzmbArwf3/RuIKnSwGulRCnHpvy9QIPl0jvxoZVvQAAAABJRU5ErkJggg==">
+                        <span style="margin-left: 4px;">Clear Filtered</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards" *ngFor="let project of filtered">
+            <div class="card">
+                <div style="border-top: 1px solid rgb(68, 68, 68);"></div>
+
+                <h3 class="projName"> {{project.projectName}} </h3>
+                <span style="font-weight: lighter;" class="secondary"> {{project.projectDescription}} </span>
+                <div class="lg" style="margin-top: 8px;">
+                    <span style="margin: 10px 6px 10px 0px;" *ngFor="let t of project.techStackRequire" class="chip"> {{t}} </span>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                    <span class="hc">
+                        <img width="18px" height="18px"
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAADzklEQVRoge2YX2hbVRzHP797M9xyk236JFjKhoKCf0CiSQWF2oaCiqyiVDqUsQdBfXDig/9etOKDD3uZINXhw0C0Tpg6nQpdm/Wh25pm+lDdZCijYBXnw1SSNFvtuT8fuqQ3bdLkJuluH/J5yTm/e87v9/3dk3vvOT9o06ZNmyCRegYVkrHORexdojwC7AA6ABv0EsgMcMI21mdbJqZm6/LXF99pFhlAeBC4C7geMMAcMKvKMTukR8Ojmd+aSmC+O9Hh2joE7FkSvCYG5bAV0lerBS4kY50G+x2Ugbr8wSFL7TfCqdO/+04g3xvvBz5SiNQItJKsos9ExzOHvcZcT3xQhION+BPXeso5MfVVpYtWJWOuN7FP4UgDwQCigozkehIvLvuLv4TwcaP+1HK/yPbe+0Kli6tWIN8b71c4QpXkfKCKDoIlgn5SKZZPXHGtx1auRJnT+e5Eh9r6c4N3qhLZq7/RVvkTa9NtzvGTfxQNZXfZDblvtVA8LAlvlXiAqOv+N+Q1lFagkIx1GrUvUPvtEDTGMrIjPJGeA88KLKrVz8YXD2Abm13FTikBQR4KRo9/RPThYns5AeGWYOQ0gHJzsWl5jDcGIqYBBG4qtksJKLjByPGPLm0zgPLX6FwAWhqlpNX7DJwNRot/RDhXbC//hVSPBiPHP16tpQQWxD0mkAtGki/mF69c922xU0rghrHv/1UYDkaTH2R4++Tk38Ve2V5I7dB+ljdgG5E8xt3vNZQlEB099ZcoL19bTfWjwmuRicyfXtuqPX84Nf0BkLpmqupEVE5G7p9+b6V9VQICCrKbjfVduCghd1DeXP2xrXjqioynL1rqPg5cXndptVlwRZ6oViioemwMp85Mi+oAsLhu0mrjKrJn61h6stqANc+9TirzNehegtknqYg8Fx1Pf7rWoLoO2lcP+iPA5pZIq40R5VknNf1hrYF1Vwqyya5uUfdLYFtT0mqTF+FJZ2z6m3oG+yp1ZPvuuUOM9R1LpcX14JKr+ujWVOZUvRN81X6io2d+so31ADDjW1ptzhtLuvyIhwaKV1smpmYdE06AvOt3bjVE5fMFMYltx9O/+J7bTOBcT+JpRIcBp0EXV0BeiYynDzSqodlyH7nkfXeiZgS43efU86LWbic19UMz8ZutfxIZO/2j84+5W4UhPGfVNVBFDzr25Viz4qEFK+BlPpnoclUPAbdWDCb8apC9a31Z/dLSBAA0FtuU3x56XtC3PXXWBZD3HbvwuozO5FsZr+UJFCn0xXcawwFAQqL7No9lLqxXrDZt2rQJjv8BK5A79F3AKfwAAAAASUVORK5CYII=">
+                        <span style="margin-left: 4px">{{project.liked.length}}</span>
+                    </span>
+
+                    <p class="ago" style="font-weight: lighter;">Updated {{time_ago(project.updatedAt)}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="" *ngIf="participatedProjects.length == 0" class="nothingBox">
+        <img width="30px" height="30px"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAhUlEQVRIie2T0Q2AIAxEr85hHMTgAMY9XLzscf5IQhANhn4Y5H2R9nJHSQGageRG0rMeJbkGX4kCFMBodF8VkSmdIDDfTOjeaHLNfKNSMzyJLegBPSAPSXdTX9Ja/JMJACIiqSjVlBB8vvlEPw94syElXLbIitwWeUN/DYc4YDcK0dOrEQ6MFa0f+Wf+DgAAAABJRU5ErkJggg==">
+        <h3>Create your first Cont project</h3>
+        <span style="font-weight: lighter;">Projects are a customizable, flexible tool for planning and tracking your
+            team.</span>
+        <button class="btnCreate" routerLink="/new"> Create </button>
+    </div>
+</div>

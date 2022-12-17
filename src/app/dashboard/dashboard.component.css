@@ -1,0 +1,182 @@
+.left {
+    width: 98%;
+    margin: auto;
+}
+
+.right {
+    width: 100%;
+}
+
+.profilePic {
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    margin-bottom: 20px;
+    border: 1px solid black;
+}
+
+p, span {
+    font-weight: lighter;
+}
+
+.name, .userName, .sp {
+    margin: 0px;
+}
+
+.userName {
+    font-size: 24px;
+}
+
+.editProfileBtn {
+    width: 100%;
+    border: 1px solid rgb(68, 68, 68);
+    outline: none;
+    background-color: #161B22;
+    color: white;
+    padding: 7px 0px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.editProfileBtn:hover {
+    background-color: #2f3742;
+}
+
+.border {
+    border: 1px solid red;
+}
+
+.hc {
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.imageDiv {
+    display: flex;
+    justify-content: start;
+    margin: 10px;
+}
+
+.name-username-lg {
+    display: none;
+}
+
+.name-username-sm {
+    display: block;
+    margin-left: 20px;
+}
+
+.info-div {
+    margin: 20px 0px 20px 20px;
+}
+
+.showDetails {
+    display: none;
+}
+
+.vc {
+    display: flex;
+    height: 40px;
+    justify-content: center;
+}
+
+form > input, textarea, form > div > input {
+    width: 92%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    padding: 4px 10px;
+
+    border-radius: 4px;
+
+    border: 1px solid rgb(68, 68, 68);
+    color: white;
+
+    margin-bottom: 8px;
+}
+
+
+
+.saveBtn {
+    cursor: pointer;
+    color: white;
+    padding: 8px 24px;
+    background-color: green;
+    outline: none;
+    border: none;
+
+    border-radius: 6px;
+    margin-top: 14px;
+}
+
+.cancalBtn {
+    cursor: pointer;
+    color: white;
+    padding: 8px 24px;
+    background-color: transparent;
+    outline: none;
+    border: 1px solid #28374d;
+
+    border-radius: 6px;
+    margin-top: 14px;
+}
+
+.saveBtn:hover {
+    background-color: rgb(1, 117, 1);
+}
+
+.cancalBtn:hover {
+    background-color: #0d1117;
+}
+
+form > label, form > div > label {
+    color: rgb(124, 124, 124);
+}
+
+.editSec {
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: #161b22;
+}
+
+@media only screen and (min-width: 1000px) {
+    .dashboardBody {
+        display: flex;
+        justify-content: space-between;
+    }
+    .left {
+        margin-top: 45px;
+        width: 27%;
+
+    }
+
+    form > input, textarea {
+        padding: 6px 10px;
+        margin-bottom: 10px;
+    }
+    
+    .right {
+        width: 68%;
+    }
+    .profilePic {
+        height: 300px;
+        width: 300px;
+    }
+    .imageDiv {
+        display: flex;
+        justify-content: center;
+    }
+    .name-username-lg {
+        display: block;
+    }
+
+    .name-username-sm {
+        display: none;
+    }
+    .info-div {
+        margin: 20px 0px 20px 0px;
+    }
+}
+    

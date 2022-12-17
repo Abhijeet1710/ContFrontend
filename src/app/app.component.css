@@ -1,0 +1,102 @@
+ p,
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6,
+ input,
+ button,
+ div {
+     color: white;
+     margin: 0px;
+ }
+
+ .bodyy {
+     background-color: #0D1117;
+ }
+
+ .primary {
+     color: white;
+ }
+
+ .secondary {
+     color: #494949;
+ }
+
+ .navbar {
+     background-color: #161B22;
+ }
+
+ .nav {
+     margin: 0px 10px;
+     padding: 15px 0px;
+     display: flex;
+     justify-content: space-between;
+ }
+
+ .btn {
+     background-color: transparent;
+     outline: none;
+     border: none;
+     cursor: pointer;
+     padding: 10px;
+ }
+
+ .profilePic {
+     border-radius: 50%;
+     height: 26px;
+     width: 26px;
+     border: 1px solid black;
+ }
+
+ .footer {
+     display: flex;
+     padding: 38px 0px;
+     width: 100%;
+     margin: auto;
+     flex-direction: column;
+ }
+
+ .footer>span {
+     margin-top: 10px;
+ }
+
+ .footer>span:hover {
+     text-decoration: underline;
+     cursor: pointer;
+ }
+
+ @media only screen and (min-width: 1000px) {
+     .view {
+         width: 84%;
+         height: 100%;
+         margin: auto;
+
+     }
+
+     .navbar {
+        margin-bottom: 20px;
+     }
+
+     .nav {
+         width: 80%;
+         margin: auto;
+     }
+
+     .menuItem:hover {
+         background-color: #1F6FEB;
+     }
+
+     .footer {
+         flex-direction: row;
+         width: 80%;
+         margin: auto;
+     }
+
+     .footer>span {
+         margin-top: 0px;
+         margin-left: 20px;
+     }
+
+ }

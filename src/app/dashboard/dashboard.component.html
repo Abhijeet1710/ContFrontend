@@ -1,0 +1,174 @@
+<div class="dashboardBody">
+    <!-- Left Profile Panel -->
+    <div class="left">
+        <div class="imageDiv">
+            <img [src]="userData.profilePicture" class="profilePic" />
+
+            <div class="name-username-sm">
+                <h1 class="name"> {{userData.name}} </h1>
+                <p class="userName">{{userData.userName}}</p>
+            </div>
+        </div>
+        <div *ngIf="!editing" class="content">
+            <div class="name-username-lg">
+                <h1 class="name"> {{userData.name}} </h1>
+                <p class="userName">{{userData.userName}}</p>
+            </div>
+            <div style="display: flex; flex-direction:column; justify-content: center">
+                <p> {{userData.tagLine}} </p>
+
+                <button class="editProfileBtn" (click)="openEditProfile()"> Edit Profile </button>
+            </div>
+            <div class="info-div">
+                <div class="hc" *ngIf="userData.company.length > 0">
+                    <img width="14px" height="18px"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAcUlEQVRIie2TQQ7AIAgEpenj/P8T7EOml9aDCQUMPZg4N8CwSzaWsvECVODCTwNqRKAFlneRiAAA2e8Pt4NJVIHRoebYnY21UKvd2WRlMPbXySAskMWpDUREvmqr/7IzMFk/g64e+cWuxc9lv1+wMbkBnnYoS4R0jv4AAAAASUVORK5CYII=">
+                    <span class="secondary" style="margin-left: 6px;"> {{userData.company}} </span>
+                </div>
+
+                <div class="hc" *ngIf="userData.address.length > 0">
+                    <img width="17px" height="18px"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABeUlEQVRIidWUMUsDQRSENzZpTMAQ0gRrQQSLtLHRSqwkWIiVFrGICvozgvb6O2IhqGBnhIB2WkqSMggaCajoZ5FZXJPLmewJ4oPlbufNm9nbt3vG/HUAcWAHqALPGlVgG4hHFc8CNwyOayAbZeVWvA4UgITGMnDnmIz+JdoWK54KyKeAhjhbPgZXKi5ovgQ0JboobEWcSx+DtooTmtvVAtSFJTV/GqQzFuLxMgTH5l59DG71zOtZNMY0jTENvRtjzFwPd/gA9vT5xyGcE3F2fQwyQAf4AGYC8rPKdYDMyAYSOdAKL4BYT+5cuX0vcYmkgZaEVh18TVgLSHsbSGxDYg/AJN3fhzVdjyQugxhQkeApcKb3Su+2DStYdC5UWdgEcO/gDbs1QNnBi+Hq3YKaU/AOLAjPA28aeWHz4tio/SSec5rX94cESkApAI87fcmFGRz5Hj2+jvThIMI48CjStIfBFN2L1waSQYRNfi/6m8335kaN8Gb/q/gEjEvW3DlP+1QAAAAASUVORK5CYII=">
+                    <span class="secondary" style="margin-left: 6px;">{{userData.address}}</span>
+                </div>
+
+                <div class="hc" *ngIf="userData.phoneNumber.length > 0">
+                    <img width="17px" height="17px"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAAeElEQVRIie2WuxGAMAxD5RxbcQzAsQeDk+whGugCSWw+Kfx668mdgB4huZBMbCeSnC3iqJCebHfZUhBT3RqAiFzmD9aAHDWFQ0vgk7jYxS52sYtd7GIXf0/V5rKOvhyWj0cA0x/igMI8VvPmoC99vAJIis7xuO2PHXQkzG3STZBiAAAAAElFTkSuQmCC">
+                    <span class="secondary" style="margin-left: 6px;">{{userData.phoneNumber}}</span>
+                </div>
+
+                <div class="hc" *ngIf="userData.link.length > 0">
+                    <img width="17px" height="17px"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAsElEQVRIie2RwQ3CMAxFDSwBXYlWTMAaZABUiaUoHaDT0F44PS4uSk2KEuAAUt4l0o/zvx2LZDL/BbADWmDAEKi1DMAFqObMT4FHKQE+dahzgBtwAIo3pi8Apx4ApX/ZquhSjQNBTr0aX+xV3JjiKMybtcpXEZGlaWDx6QQishqz/IBOz/0kLRITMHp0DwWovCW7Ly15awvq2H/W+lcc57oogcZbekpAD5yfOs9kfp87n6KIDdsSqu8AAAAASUVORK5CYII=">
+                    <a class="secondary" style="margin-left: 6px;" [href]="userData.link"
+                        target="_blank">{{userData.link}}</a>
+                </div>
+
+                <div class="hc" *ngIf="userData.twitter.length > 0">
+                    <img width="17px" height="17px"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA+klEQVRIie2TMRKCQAxF1VsIRwKv4DEUaxlvhc7oWOlpxMbqWZgdYU12M9T+Biabn7/5H2azP6YAWAEn4EkeT+AI1N7hB8dQC63n5gAvYAMUjgsVwFY4JDcRWwC2rnU/nCtwARrhdqnmXpqKqD7MZOS5DD/LJgCPlAAAUS2VSZvjJwW0TFKeTxEwM9E8nyIQMlkqvcvYc01gYaqNMVdqgWvf2CFwk+daOQu1e2bGF4pF9SDkRgIugd0g5MriZwWk1mJjn+PHAtaPVgOdnPfyXkU9ZRy6JnCUpsZssrm7+LPVmn48dww2M7EIKc9z2CeHR5sEz3NQM/nDjTcudtgv0yZUxwAAAABJRU5ErkJggg==">
+                    <a class="secondary" style="margin-left: 6px;" [href]="userData.twitter">{{userData.twitter}}</a>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="editing" class="editDetails">
+            <form class="editSec">
+                <label class="lbl" for="name" style="margin-bottom: 4px;"> Name </label> <br>
+                <input name="name" type="text" class="name" id="name" [(ngModel)]="userData.name" />
+
+                <label class="lbl" for="email" style="margin-bottom: 4px;"> Email Id </label> <br>
+                <input name="email" type="text" class="email" id="email" [(ngModel)]="userData.email" />
+
+                <label class="lbl" for="password" style="margin-bottom: 4px;"> Password </label> <br>
+                <input name="password" type="password" class="email" id="password" [(ngModel)]="userData.password" />
+
+                <label class="lbl" for="profilePic" style="margin-bottom: 4px;"> Profile Picture </label> <br>
+                <input name="profilePic" type="text" class="company" id="profilePic"
+                    [(ngModel)]="userData.profilePicture" />
+
+                <label class="lbl" for="TagLine" style="margin-bottom: 4px;"> TagLine </label> <br>
+                <input name="tagLine" type="text" class="TagLine" id="TagLine" [(ngModel)]="userData.tagLine" />
+
+
+                <div class="vc">
+                    <img width="22px" height="25px" style="padding: 4px 0px; margin-right: 6px;"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAAeElEQVRIie2WuxGAMAxD5RxbcQzAsQeDk+whGugCSWw+Kfx668mdgB4huZBMbCeSnC3iqJCebHfZUhBT3RqAiFzmD9aAHDWFQ0vgk7jYxS52sYtd7GIXf0/V5rKOvhyWj0cA0x/igMI8VvPmoC99vAJIis7xuO2PHXQkzG3STZBiAAAAAElFTkSuQmCC">
+
+                    <!-- <label class="lbl" for="phone"> Phone Number </label> -->
+                    <input name="phone" type="text" class="phone" id="phone" [(ngModel)]="userData.phoneNumber" />
+                </div>
+
+                <div class="vc" style="height: 70px;">
+                    <img width="22px" height="25px" style="padding: 4px 0px; margin-right: 6px;"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABeUlEQVRIidWUMUsDQRSENzZpTMAQ0gRrQQSLtLHRSqwkWIiVFrGICvozgvb6O2IhqGBnhIB2WkqSMggaCajoZ5FZXJPLmewJ4oPlbufNm9nbt3vG/HUAcWAHqALPGlVgG4hHFc8CNwyOayAbZeVWvA4UgITGMnDnmIz+JdoWK54KyKeAhjhbPgZXKi5ovgQ0JboobEWcSx+DtooTmtvVAtSFJTV/GqQzFuLxMgTH5l59DG71zOtZNMY0jTENvRtjzFwPd/gA9vT5xyGcE3F2fQwyQAf4AGYC8rPKdYDMyAYSOdAKL4BYT+5cuX0vcYmkgZaEVh18TVgLSHsbSGxDYg/AJN3fhzVdjyQugxhQkeApcKb3Su+2DStYdC5UWdgEcO/gDbs1QNnBi+Hq3YKaU/AOLAjPA28aeWHz4tio/SSec5rX94cESkApAI87fcmFGRz5Hj2+jvThIMI48CjStIfBFN2L1waSQYRNfi/6m8335kaN8Gb/q/gEjEvW3DlP+1QAAAAASUVORK5CYII=">
+                    <textarea name="address" type="text" class="Address" id="Address" style="height: 50px;"
+                        [(ngModel)]="userData.address"></textarea>
+                </div>
+
+
+                <div class="vc" style="margin-bottom: 4px;">
+                    <img width="22px" height="25px" style="padding: 4px 0px; margin-right: 6px;"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA+klEQVRIie2TMRKCQAxF1VsIRwKv4DEUaxlvhc7oWOlpxMbqWZgdYU12M9T+Biabn7/5H2azP6YAWAEn4EkeT+AI1N7hB8dQC63n5gAvYAMUjgsVwFY4JDcRWwC2rnU/nCtwARrhdqnmXpqKqD7MZOS5DD/LJgCPlAAAUS2VSZvjJwW0TFKeTxEwM9E8nyIQMlkqvcvYc01gYaqNMVdqgWvf2CFwk+daOQu1e2bGF4pF9SDkRgIugd0g5MriZwWk1mJjn+PHAtaPVgOdnPfyXkU9ZRy6JnCUpsZssrm7+LPVmn48dww2M7EIKc9z2CeHR5sEz3NQM/nDjTcudtgv0yZUxwAAAABJRU5ErkJggg==">
+                    <input name="twitter" type="text" class="name" id="Twitter" [(ngModel)]="userData.twitter" />
+                </div>
+
+
+                <div class="vc" style="margin-bottom: 4px;">
+                    <img width="22px" height="25px" style="padding: 4px 0px; margin-right: 6px;"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAcUlEQVRIie2TQQ7AIAgEpenj/P8T7EOml9aDCQUMPZg4N8CwSzaWsvECVODCTwNqRKAFlneRiAAA2e8Pt4NJVIHRoebYnY21UKvd2WRlMPbXySAskMWpDUREvmqr/7IzMFk/g64e+cWuxc9lv1+wMbkBnnYoS4R0jv4AAAAASUVORK5CYII=">
+
+                    <input name="company" type="text" class="company" id="company" [(ngModel)]="userData.company" />
+                </div>
+
+
+                <div class="vc" style="margin-bottom: 4px;">
+                    <img width="22px" height="25px" style="padding: 4px 0px; margin-right: 6px;"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAsElEQVRIie2RwQ3CMAxFDSwBXYlWTMAaZABUiaUoHaDT0F44PS4uSk2KEuAAUt4l0o/zvx2LZDL/BbADWmDAEKi1DMAFqObMT4FHKQE+dahzgBtwAIo3pi8Apx4ApX/ZquhSjQNBTr0aX+xV3JjiKMybtcpXEZGlaWDx6QQishqz/IBOz/0kLRITMHp0DwWovCW7Ly15awvq2H/W+lcc57oogcZbekpAD5yfOs9kfp87n6KIDdsSqu8AAAAASUVORK5CYII=">
+
+                    <input name="link" type="text" class="company" id="link" [(ngModel)]="userData.link" />
+                </div>
+
+
+                <button class="saveBtn" (click)="updateUserData()">Save</button>
+                <button class="cancalBtn" style="margin-left: 10px;" (click)="closeEditProfile()">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Main Content -->
+    <div class="right">
+        <mat-tab-group>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAf0lEQVRIie2UMRJAMBBFf4xDKJzE6LiHzr3cSxeFW3yFDSmIBEOzbyYzv/jZt2kCKH9jXCDJi+4MYJDcASiCg40xqYIknGCDwtkFkjV3qkDveM6V4G4nC5XfQAUqUMEHgtzLE4Ay5tOL6FgX/Bf0InmKlVlpkGxJjnKaFxZRVhby6Fr+zZDCrgAAAABJRU5ErkJggg==">
+                    <span style="margin-left: 10px;">Overview</span>
+                </ng-template>
+                <app-overview
+                 *ngIf="myPopularProjects && participatedPopularProjects" [myPopularProjects]="myPopularProjects"
+                    [participatedPopularProjects]="participatedPopularProjects">
+                </app-overview>
+            </mat-tab>
+
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAbElEQVRIie2VSw6AMAhEwXj/S6nnwm1jO0whLuctbZlPTKiZ6BIRT+xzIR1PDKISyN2hVpqYCbNGPl7sJGNzx+qA1gWCq7nJ4G9kIAMZmJ3fD9Ulx+bGBndHGDAvu91ECLS/sn9QaQQfHEF5ASX3eeqmN1jHAAAAAElFTkSuQmCC">
+                    <span style="margin-left: 10px;">My Projects</span>
+                </ng-template>
+                <app-my-projects *ngIf="myProjects" [myProjects]="myProjects"></app-my-projects>
+            </mat-tab>
+
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAoklEQVRIie2U3Q3CMAyEzwi2qBgElQEQe3QXfqZilfSNIT5eUikqrRU1FVDRk/JgOb7z2VGkXwCwA+7AM54bsJ1T4Mo7LlOIzkA7QNbhANROPgCnlNN6AkFS5fRwjDUP504ws/2YAwDy/ObVb6aS5WL5Au5bHtuHmVma7+IhfNeB11lOXlqXvC55Dnx8RK2kquRHlRTSoO+giSIl5E1B/T/iBUGcnwzYtGOZAAAAAElFTkSuQmCC">
+                    <span style="margin-left: 10px;">Participated</span>
+                </ng-template>
+
+                <app-participated-projects *ngIf="participatedProjects" [participatedProjects]="participatedProjects"></app-participated-projects>
+            </mat-tab>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAn0lEQVRIie2T0Q2DMAxE76quQTfpP5N0UxYhe3D9AcmyTIoTxE95X4nknH2XBLjJIGmUVNTOLGm0mnQNZgBD55yF5GvPgSSpVTk6/6wUTwAWkm+73oRsLUlGGgDwqAy0AFCwbueyiHqaeGoRnULowF7a5qZ2kb72Z4OsSOsrOoW0gyNRdTX4v4gud1AADFHOid9d7MY7+PiCJGXVuDnOFz7HnYo5sq+pAAAAAElFTkSuQmCC">
+                    <span style="margin-left: 10px;">All Projects</span>
+                </ng-template>
+                <app-all-projects *ngIf="all" [allProjects]="all"></app-all-projects>
+            </mat-tab>
+            <!-- <mat-tab>
+                <ng-template mat-tab-label>
+                    <img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABrklEQVRIie3Uz4tNcRjH8e+5JpIyhoYoGyLSRJOllWwM8xeMbEjJwnJSfpRio4waFrZjJ4WSyEryYxjKXlOK/ErXDFJ+vSw8t/k63dN1x2TDsznf830+z/vznO/T+ab0P/5GYB72YBQTODBT4NUYQt2v8f5PoDX04xq+Z9BbOBTrp9MBd2I/xjPoJ4xgQ2h2xP7FdsC9OIuPGfgJBrGopB2K/MFW0DnRzb0M+g1XsBW10G3HmazuZmj7qsDLcQyvMvBbnMCKTLc2ZnAH82OvhsmoWdIMPojPGfgRdmFupunCqdDdbcAjtybqnlV1/yEEL7GllJuFvXgTmlF0ljQDkbtcZXAp676OYfRgMx5nuQdY0KT+ZOQPVxl0YGeca1WMoauivjHgbU0NSuIenC7BJ7GwQp8PeGlLg6zwYWZwFQWO4jiKTNcY8PMyo6OFx4WUUm+sb6eUzqWUBuJ9GXYXRfE1pbQx9sZ+u/vobFX2Ba/jOWHqrz6P2dmAj7RlECb5MY1jHTaZukGv436s+6dj0Id3uIHF2f56vMjMv6C7bYMW5iv9vK/q2Dej8H8nfgD9AMLTBhrSNwAAAABJRU5ErkJggg==">
+                    <span style="margin-left: 10px;">Chatting</span>
+                </ng-template>
+
+                Content 3
+            </mat-tab> -->
+        </mat-tab-group>
+
+    </div>
+</div>

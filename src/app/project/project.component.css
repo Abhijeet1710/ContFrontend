@@ -1,0 +1,97 @@
+.vc {
+    display: flex;
+}
+
+.under:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.main {
+    width: 90%;
+    margin: auto;
+    padding-top: 50px;
+}
+
+.center {
+    width: 100%;
+    margin: auto;
+}
+
+.profilePic {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+}
+
+.chip {
+    background-color: transparent;
+    border-radius: 20px;
+    padding: 4px 14px;
+    cursor: pointer;
+    border: 1px solid rgb(36, 36, 36);
+    color: white;
+}
+
+.chip:hover {
+    background-color: #161B22;
+}
+
+.box {
+    background-color: transparent;
+    border-radius: 4px;
+    padding: 10px 24px;
+    cursor: pointer;
+    border: 1px solid rgb(36, 36, 36);
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.box:hover {
+    background-color: #1a2028;
+}
+
+/* .userCard {
+    padding: 8px 10px;
+    border-radius: 6px;
+} */
+
+.userCard:hover {
+    cursor: pointer;
+}
+
+.filled {
+    background-color: #1a2028;
+}
+
+
+@media only screen and (min-width: 1000px) { 
+    .main {
+        width: 60%;
+        margin: auto;
+        padding: 50px 0px;
+    }
+
+    .admin_name {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .sm {
+        display: none;
+    }
+
+    .lg {
+        display: block;
+    }
+
+    
+    .center {
+        width: 80%;
+        margin: auto;
+    }
+
+}

@@ -1,0 +1,56 @@
+<div class="bodyy">
+    <div class="navbar">
+        <div class="nav">
+            <button class="btn" routerLink="dashboard" style="display: flex;">
+                <img width="26px" height="26px" src="../assets//logo_new.png" style="margin-right: 4px;">
+                <h2>ContUi</h2>
+            </button>
+            <div style="display: flex;" *ngIf="isUserLoggedIn()">
+                <button class="btn" routerLink="new">
+                    <img width="20px" height="20px" style="cursor: pointer;" style="margin-top: 3px;"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAAX0lEQVRoge3XsQ3AIAwAQcj+O5M6qWiIXtHdALZeNGYMAGDMk8PXWuuxbM5j+65Tg78mpEZIjZAaITVCaoTUbF2j7yv2aztX829eREiNH2KNkBohNUJqhNQIqRECAATdLYAMPjHeUbkAAAAASUVORK5CYII=">
+                </button>
+                <div>
+                    <button class="btn" [matMenuTriggerFor]="beforeMenu">
+                        <img [src]="getProfilePic()" class="profilePic" />
+                        <img width="13px" height="13px" style="margin-bottom: 8px;"
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAAbElEQVRIie3POQ6AMAxE0YiWmoj73wMuQEfDcT4NBUIsWSZU8yW3fnYIzjnnSgNm9E1Xp7ux+wb/fO8EBmAVfrsBY9J5QjwdFeL5qAAvRyvwerQA16EZuB5NwNuhL3h79IRHYDkm/oI6557aAUkhR8RMclH/AAAAAElFTkSuQmCC">
+                    </button>
+                    <mat-menu class="matMenuBox" #beforeMenu="matMenu" xPosition="before">
+                        <div>
+
+                            <button mat-menu-item routerLink="dashboard">
+                                {{getOpt1()}}
+                            </button>
+
+                            <div style="border-top: 1px solid rgb(101, 101, 101);"></div>
+
+                            <button mat-menu-item class="menuItem" (click)="openYourProfile()"> Your profile
+                            </button>
+                            <button mat-menu-item class="menuItem" (click)="logout()">Sign Out
+                            </button>
+                        </div>
+                    </mat-menu>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="view">
+        <router-outlet></router-outlet>
+    </div>
+
+    <div *ngIf="isUserLoggedIn()">
+        <div style="border-top: 1px solid rgb(36, 36, 36); margin-top: 20px;"></div>
+
+        <div class="footer">
+            <span style="font-size: 16px; font-weight: lighter;" class="tertiory"> Copyright © 2022 Abhijeet1710 </span>
+            <span style="font-size: 16px; font-weight: lighter;" class="tertiory">Help Center </span> 
+            <span style="font-size: 16px; font-weight: lighter;" class="tertiory"> Privacy Policy </span>
+            <span style="font-size: 16px; font-weight: lighter;" class="tertiory">
+                <img width="28px" height="28px"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAFF0lEQVRoge3Za4hUZRzH8e9zzuyOd9fdFTM1L3ghKUKlKPKSSkRXo9SEIkUQBfGF9EIqLyO+iqJk0zIUCu0CVlIvxAIv4SUiJSgxUzFvqbm6urOrzsyO8//1YkZcZ3ad2TPr7kL7wOHM82fOmc9/nuvMgc7SWf7fxbXGTbQZP1rNQxITkBuPGC5RQfoAUYOoEe6YZHt9jz1lg/jDzSRV7GcXlcDVtdxzwzFb5hYghmSwKHNufIisujiH3CaXsrUVSznTpgnUVNErFPJWSlooUZIFKwTfuJ4Ubo2XtEhFhLq7nkDtOqbLXJUT/bOxAfCN6+dNWtRvBd/elQQkXO06b4WTliNcK+Mb1V1VX2eLXQRrtQRURbgu5L4WPF8IJDg+fTjxfaWvmS5CQz6blxcfwYuWepvaCp+pT7uY9DYqkt+X9w11/bz3Mc1oK/zNmKRXqhPeu/l8d+xC0XU8I3Nb2xrfuG7SM/3fYVuLE7j8Cb29lDuIGNReeAmAs+GEHuizmtqmnM12Id+8Fe2OF2AMiJd4S5tzNtkC0Q2UK+FOSfRoV/yt+rVUXIMHrqWmsBZIsLAD4UF098IsKKgFJLnj52tPmNlgSdx2mGHZsebiZki6PZ6JFRRvFEvHOTntyceHOed0xxb4+3x0XMfDC8mGbPlxz5hsbyg7kJJNKRa/73iUHYevIATOIRNTR/Xi4fu6B8Sn40iTgd/umICZPUIR+M9+/hc/ZCyY1J+GZAokQr5j26HLHK2OMWtseSC8JMzs0Wxv7iAWI4v55v2QMWVEHy7VN3CyJs7JyzEu1TcweUQvwNh/6mogvCRAw/MmINnAoH1+x+ErPD26guvJFIfOX+NETZwT1QkOX4hxPZniqfv7sPNIfSB8ZiAPyjsGJPUIOmBxIp5McSHaQCIpjl+Mg4NhFWGq65KEPXAuKF7IrGf+FihitkmvnHZrMnfpk0xImbgIis90ozwJmFQfBJ9pYkp9n8oeIUK+Y2ifUoaWl9KlxNG3R4hQyGEiMF5SfQFjgLNB8DJj6qhebD1UQzjkGN0vzODyUgaXhxjZN0wX37HtzyiTRnQLikfK/fHf1CA+EgQvKTPPw86jtZR1K2Fg7xIGlZVQ1tVn+7F6HDCmfzggXkh2LNubuw5IvyJND7rCzhpbzv5TV9mwtxqHkAMZTBrRrUi8SKVSv+RNQKZdqLjtwbiBXRk7oEsxs00O3szAs13Z3ia30wcOnTguNCwIPugilQ8vcfL1Gc/mbOZyWgBg2v63PzVpVXpMpPe0yuydJTLTYW7s5jSXviZzptFrKbMFz73mttht14AQktbPds/lzKNN/h7wS1gL1HcUPFJ92E983JS1yQROv/rlFRnrOwgexLrom3uvFJwAQEPYWylxpgPgT8dK46uaczabwOXXvqjD09z0vdsNj8F8luzLWYHzJgBwYe7m7chWtxteei+xbMcPdzLm/Weuet43b0hsbGu80FcJm7gkny9vAjh0sdzNE3zXht/8lniqYg6RSN5/qAt/PiBc5UcvrRBaLsndLTyiKmYTFheCb1kCmVL+4YsvA1WS7m1l/DmwRbFlu7a0xOO3NIHYtr8Od39i5HorIezEOEl+kfgGzH0QC8dn3Hhr9+8t9RT1kK/76hf6hUjNwdx80NAW4s9ifE7qxppY5Kd/ghpa5TErkYhX1vPAgyZNRKnxhhuOqESqzOAvAZcwO2Zin+f7u6/FHztYaD/vLJ2lszRf/gP6mtFi2fkMugAAAABJRU5ErkJggg==">
+            </span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="main">
+    <div>
+        <span style="font-size: 22px;"> Create a New Project </span> <br>
+        <p class="secondary" style="font-size: 14px; margin-top: 8px;"> A project contains all project contributors,
+            Admin including the revision history. Already have a project repository elsewhere? </p>
+        <div style="border-top: 1px solid rgb(36, 36, 36); margin: 12px 0px;"></div>
+    </div>
+
+    <div class="admin_name">
+        <div>
+            <div style="margin-bottom: 4px;"> Admin* </div>
+            <div class="box vc">
+                <div style="margin-right: 8px;"><img [src]="userData.profilePicture" class="profilePic" /></div>
+                <div>{{userData.userName}}</div>
+            </div>
+        </div>
+        <div class="slash lg">
+            <img width="30px" height="40px"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABmJLR0QA/wD/AP+gvaeTAAABEUlEQVR4nO3dMU4DQRBFQSInmPNyBW5FAPf6JCAhBMYB+El2VTpJ6/VIk+3e3QEAAAAAJ2071DPcrG332563PdWz3JxP8T9YwqV8E98SLuVEfEv4b9uO215OxN/7uYf5r51x87ftddtDPevVET8kfkj8kPgh8UPih8QPiR8SPyR+SPyQ+CHxQ+KHxA+JHxI/JH5I/JD4IfFD4ofED4kfEj8kfkj8kPgh8UPih8QPiR8SPyR+SPyQ+CHxQ+KHxA+JHxI/JH5I/JD4IfFD4ofED4kfEj8kfkj8kPgh8UPih8QPiR8SPyR+SPzQtsPO+5D1sZ71am17dPNjPyxB/Ev6sgTxC+9LEL80f44AAAAAgF+9ATJrwjFvVWm1AAAAAElFTkSuQmCC">
+        </div>
+        <div class="projName">
+            <div style="margin-bottom: 4px;"> Project Name* </div>
+            <div>
+                <input class="projectNameIp" [(ngModel)] = "projectData.projectName" type="text">
+            </div>
+        </div>
+    </div>
+
+    <p class="secondary" style="font-size: 14px; margin-bottom: 20px;"> Great Project names are short and memorable. For Ex. <b
+            style="color: rgb(69, 98, 230);"> musical-parakeet </b></p>
+
+    <label> Description of Project </label> <br>
+    <span class="secondary" style="font-size: 14px;">Type here short summary of your project</span>
+    <textarea  [(ngModel)] = "projectData.projectDescription"  placeholder="Type here short summary of your project" class="ip" style="height: 70px; margin-top: 8px;">  </textarea>
+
+    <div style="border-top: 1px solid rgb(36, 36, 36); margin: 20px 0px;"></div>
+
+    <div>
+        <label> No of Openings </label> <br>
+        <input  [(ngModel)] = "projectData.teamMatesRequire"  class="ipBox" type="number" value="01"/>
+    </div>
+
+    <div style="margin-top: 20px;"> 
+        <label> Tech Stack Require <span class="secondary"> (Maximum 3, Seperated by <b> , </b>) </span> </label> <br>
+        <input [(ngModel)] = "techStackRequire" placeholder="Type here technology experts you are looking for. For Ex. Java, React, Angular, SpringBoot etc " class="ipBox" style="width: 90%;" type="text" />
+    </div>
+
+    <div style="margin-top: 20px;"> 
+        <label> Project Domain <span class="secondary"> (Maximum 3, Seperated by <b> , </b>) </span>  </label> <br>
+        <input [(ngModel)] = "projectDomain" placeholder="For Ex. Healthcare, Manufacturing etc." class="ipBox" style="width: 90%;" type="text" />
+    </div>
+
+    <div class="btns">
+        <button (click)="addProject()" class="btnCreate">Create</button>
+        <button (click)="cancel()" class="btnCancel">Cancel</button>
+    </div>
+
+    
+</div>

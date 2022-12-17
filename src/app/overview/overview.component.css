@@ -1,0 +1,120 @@
+.overviewContent {
+    width: 92%;
+    margin: auto;    
+    margin-top: 20px;
+}
+
+.secOne {
+    padding: 20px;
+    border: 1px solid rgb(68, 68, 68);
+    border-radius: 8px;
+    margin: 10px 0px 30px 0px;
+}
+
+.aboutMeTA {
+    width: 100%;
+    height: 200PX;
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    color: white;
+}
+
+.center {
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border: 1px solid rgb(68, 68, 68);
+    border-radius: 8px;
+    padding: 30px 10px;
+
+    text-align: center;
+}
+
+.secTwo {
+    margin: 10px 0px 40px 0px;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.card {
+    border: 1px solid rgb(68, 68, 68);
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.text-with-dots {
+    border: 1px solid red;
+    height: 70px;
+    text-overflow: ellipsis;
+
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+
+}
+
+.hc {
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.projName {
+    /* color: #7AAEEB; */
+    color: #0077ff;
+    cursor: pointer;
+    font-weight: bold;
+
+}
+
+.backOnHov {
+    height: 28px;
+    width: 28px;
+    border-radius: 14px;
+}
+
+.backOnHov:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+.projName:hover {
+    color: #0077ff;
+    text-decoration: underline;
+}
+
+.btnCreate {
+    background-color: rgb(5, 138, 5);
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin-right: 20px;
+    cursor: pointer;
+    border: none;
+    color: white;
+}
+
+.btnCreate:hover {
+    background-color: rgb(2, 109, 2);
+}
+
+
+@media only screen and (min-width: 1000px) { 
+
+    .overviewContent {
+        width: 100%;
+    }
+
+    .secTwo {
+    
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+}

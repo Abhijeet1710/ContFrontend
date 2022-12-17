@@ -1,0 +1,98 @@
+<div class="overviewContent">
+    <div class="secOne" *ngIf="!editingAboutMe">
+        <div style="display: flex; justify-content: space-between;">
+            <span style="font-size: 16px; margin-bottom: 10px;"> {{userData.userName}} / README </span>
+            <div>
+                <img (click)=" editingAboutMe = true " width="16px" height="16px" style="cursor: pointer; "
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAyklEQVR4nO3VMUoDQRSA4Q3mDhb2CikTa8t0XiLYe4FAAhJrK8F4B89iivSKGkhIn3SfLDxhWCzUnanM3ywzsN+DV+xWVYYwxRvmOMthNvG0Pa6rQnjaVUm8bofTUvhX85J43UdJvG5ywL/rsJb/vJbhL/Hpj/EY8IhF/anFJjd+hDXGcT7BcxY8wIt4uZfcHeO9NR7YHVboNO5HOfAOXgK5j3MfN1i2wmPAeWMN23iu4yc+/DMeA24T/BUPuES3FZwMeMIMgyxgo0+WPrnWbKTDMgAAAABJRU5ErkJggg==">
+            </div>
+        </div>
+        <div style="border-top: 1px solid rgb(36, 36, 36); margin: 6px 0px;"></div>
+        <ul class="tertiory">
+            <li *ngFor="let pt of aboutMe"> {{pt}} </li>
+        </ul>
+    </div>
+
+    <div *ngIf="editingAboutMe">
+        <div style="display: flex; justify-content: space-between; margin-right: 20px;">
+            <div style="display: flex; flex-direction:column">
+                <span class="secondary"> Write about you, your job, your interests etc. in points <b> seperated by coma
+                        ( , ) </b>
+                    for better visualization. </span>
+                <span class="secondary"> For Ex. <br><br>
+                    Hi there 👋 I am Abhijeet Pandurang Khamkar <b>,</b> <br>
+                    💖 India<b> ,</b> <br>
+                    🎓DSE (MEAN Stack Developer) at Infosys<b> ,</b> <br>
+                    📱 currently working on MEAN stack <br>
+                </span>
+            </div>
+            <img (click)="updateAboutMe()" width="20px" height="18px" style="cursor: pointer;"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nO3UzyoFURwH8GElyr+6PImFYkM2kpUH8ABeQdnJRmHHjh0PYWNlKSlSSimylgX3fjS5aYxj3MOZsrjf5Zzf/D7nd5o5WdbNfwiWsY1GncgkXr3nAQt1IP249DnP6E0Nbfmaw9TIFJol5BHjKZEBXAemWUqG5MFuADnIUgZzaJWQO4ymRIZwG5hmPqbJCNbz/6KiZj+A7MUgwzhtv/iE2UDNYgC5wWAMdFxqkGMzhfUG7ks1rWJNp9BJYLcfGI4C6ztRSLvRGM6/wTYDz6/y6ycaKhzPmZ/TxPSvkEhs409Ih9gF+pJAFdgLJpIhFR/IWnKkdOWsYgU9tUHdZIG8AXfnYXxwGVtiAAAAAElFTkSuQmCC">
+        </div>
+        <div class="secOne">
+            <textarea [(ngModel)]="userData.aboutMe" class="aboutMeTA" placeholder="About Me"></textarea>
+        </div>
+    </div>
+    <span style="font-size: 18px;">My Popular Projects </span>
+    <div class="secTwo" *ngIf="myPopularProjects.length > 0">
+        <div class="card" *ngFor="let project of myPopularProjects">
+            <div>
+                <span class="projName" (click)="openProject(project)"> {{project.projectName}} </span> <br>
+                <span rows="10" style="font-weight: lighter; color: gray;"> {{project.projectDescription.substring(0, 200)}} ... </span>
+            </div>
+            <div style="margin-top: 10px;">
+                <div style="display: flex; justify-content: space-between;">
+                    <div class="hc">
+                        <img width="18px" height="18px"
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABgUlEQVRIidWVwS4DURRAz6UISxWJaEKxkNhp/6NtfMRssEA0EZJJSERrZ+UXGmHqO1o7EkmphVigsyTR6rUwasxUSzub3t277805d9678wZ6PaTVpGleDoZDIykgIbCoEHEeule4EFHrufpqmebC278FR3t3S6AZYKZNkTeqsrm6M336J0Eup/2P1+UDFVlvA/aiDiu1qbRpSt2d7fMu6wwOoBvh0N2+T+seONty8n+420NqZSdq+QTOgV4Bs10JoFypvcx/HXxji5xu6RYOEA2HhhNfg+8zUJIBwAEQaCIQYkEJQOJ+ATIRFF6RySaCIEMb34JLoA8BGhos9xsUA8OrFHwCEbWar+6ATz3vEwyM2WcgpQD4t/b767lPYBjxqirpbukCa+7r+0cXfV65ctgpXJWD5e1o3p3ztWmlNpUWlWwH/Iz9Pr3lTf7+w9ktJxHJgs615kpJ0A1v5W0FAMfHhYG3p9GkQEKRGEjkc0bvBS3WFWto3M4bRrzauohejg/Eun6EtLqm5gAAAABJRU5ErkJggg==">
+                        <span *ngIf="project.techStackRequire"
+                            style="margin-left: 4px; color: gray">{{project.techStackRequire}}</span>
+                    </div>
+                    <div class="hc" style="margin-left: 10px">
+                        <img width="18px" height="18px"
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAADzklEQVRoge2YX2hbVRzHP797M9xyk236JFjKhoKCf0CiSQWF2oaCiqyiVDqUsQdBfXDig/9etOKDD3uZINXhw0C0Tpg6nQpdm/Wh25pm+lDdZCijYBXnw1SSNFvtuT8fuqQ3bdLkJuluH/J5yTm/e87v9/3dk3vvOT9o06ZNmyCRegYVkrHORexdojwC7AA6ABv0EsgMcMI21mdbJqZm6/LXF99pFhlAeBC4C7geMMAcMKvKMTukR8Ojmd+aSmC+O9Hh2joE7FkSvCYG5bAV0lerBS4kY50G+x2Ugbr8wSFL7TfCqdO/+04g3xvvBz5SiNQItJKsos9ExzOHvcZcT3xQhION+BPXeso5MfVVpYtWJWOuN7FP4UgDwQCigozkehIvLvuLv4TwcaP+1HK/yPbe+0Kli6tWIN8b71c4QpXkfKCKDoIlgn5SKZZPXHGtx1auRJnT+e5Eh9r6c4N3qhLZq7/RVvkTa9NtzvGTfxQNZXfZDblvtVA8LAlvlXiAqOv+N+Q1lFagkIx1GrUvUPvtEDTGMrIjPJGeA88KLKrVz8YXD2Abm13FTikBQR4KRo9/RPThYns5AeGWYOQ0gHJzsWl5jDcGIqYBBG4qtksJKLjByPGPLm0zgPLX6FwAWhqlpNX7DJwNRot/RDhXbC//hVSPBiPHP16tpQQWxD0mkAtGki/mF69c922xU0rghrHv/1UYDkaTH2R4++Tk38Ve2V5I7dB+ljdgG5E8xt3vNZQlEB099ZcoL19bTfWjwmuRicyfXtuqPX84Nf0BkLpmqupEVE5G7p9+b6V9VQICCrKbjfVduCghd1DeXP2xrXjqioynL1rqPg5cXndptVlwRZ6oViioemwMp85Mi+oAsLhu0mrjKrJn61h6stqANc+9TirzNehegtknqYg8Fx1Pf7rWoLoO2lcP+iPA5pZIq40R5VknNf1hrYF1Vwqyya5uUfdLYFtT0mqTF+FJZ2z6m3oG+yp1ZPvuuUOM9R1LpcX14JKr+ujWVOZUvRN81X6io2d+so31ADDjW1ptzhtLuvyIhwaKV1smpmYdE06AvOt3bjVE5fMFMYltx9O/+J7bTOBcT+JpRIcBp0EXV0BeiYynDzSqodlyH7nkfXeiZgS43efU86LWbic19UMz8ZutfxIZO/2j84+5W4UhPGfVNVBFDzr25Viz4qEFK+BlPpnoclUPAbdWDCb8apC9a31Z/dLSBAA0FtuU3x56XtC3PXXWBZD3HbvwuozO5FsZr+UJFCn0xXcawwFAQqL7No9lLqxXrDZt2rQJjv8BK5A79F3AKfwAAAAASUVORK5CYII=">
+                        <span style="margin-left: 4px; color: gray">{{project.liked.length}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="secondary center" *ngIf="myPopularProjects.length == 0">
+        <span> Oops !! </span> <br>
+        <span> You have not created any project yet </span> <br> <br>
+        <button routerLink="/new" class="btnCreate">Create One</button>
+    </div>
+
+    <span style="font-size: 18px;"> Popular Participated Projects </span>
+    <div class="secTwo" *ngIf="participatedPopularProjects.length > 0">
+        <div class="card" *ngFor="let project of participatedPopularProjects">
+            <div>
+                <span class="projName" (click)="openProject(project)"> {{project.projectName}} </span> <br>
+                <span style="font-weight: lighter; color: gray;"> {{project.projectDescription.substring(0, 200)}} ... </span>
+            </div>
+            <div style="margin-top: 10px;">
+                <div style="display: flex; justify-content: space-between;">
+                    <span class="hc">
+                        <img width="18px" height="18px"
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABgUlEQVRIidWVwS4DURRAz6UISxWJaEKxkNhp/6NtfMRssEA0EZJJSERrZ+UXGmHqO1o7EkmphVigsyTR6rUwasxUSzub3t277805d9678wZ6PaTVpGleDoZDIykgIbCoEHEeule4EFHrufpqmebC278FR3t3S6AZYKZNkTeqsrm6M336J0Eup/2P1+UDFVlvA/aiDiu1qbRpSt2d7fMu6wwOoBvh0N2+T+seONty8n+420NqZSdq+QTOgV4Bs10JoFypvcx/HXxji5xu6RYOEA2HhhNfg+8zUJIBwAEQaCIQYkEJQOJ+ATIRFF6RySaCIEMb34JLoA8BGhos9xsUA8OrFHwCEbWar+6ATz3vEwyM2WcgpQD4t/b767lPYBjxqirpbukCa+7r+0cXfV65ctgpXJWD5e1o3p3ztWmlNpUWlWwH/Iz9Pr3lTf7+w9ktJxHJgs615kpJ0A1v5W0FAMfHhYG3p9GkQEKRGEjkc0bvBS3WFWto3M4bRrzauohejg/Eun6EtLqm5gAAAABJRU5ErkJggg==">
+                        <span *ngIf="project.techStackRequire && project.techStackRequire.length > 2"
+                            style="margin-left: 4px; color: gray">{{project.techStackRequire}}</span>
+                    </span>
+                    <span class="hc" style="margin-left: 10px">
+                        <img width="18px" height="18px"
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAADzklEQVRoge2YX2hbVRzHP797M9xyk236JFjKhoKCf0CiSQWF2oaCiqyiVDqUsQdBfXDig/9etOKDD3uZINXhw0C0Tpg6nQpdm/Wh25pm+lDdZCijYBXnw1SSNFvtuT8fuqQ3bdLkJuluH/J5yTm/e87v9/3dk3vvOT9o06ZNmyCRegYVkrHORexdojwC7AA6ABv0EsgMcMI21mdbJqZm6/LXF99pFhlAeBC4C7geMMAcMKvKMTukR8Ojmd+aSmC+O9Hh2joE7FkSvCYG5bAV0lerBS4kY50G+x2Ugbr8wSFL7TfCqdO/+04g3xvvBz5SiNQItJKsos9ExzOHvcZcT3xQhION+BPXeso5MfVVpYtWJWOuN7FP4UgDwQCigozkehIvLvuLv4TwcaP+1HK/yPbe+0Kli6tWIN8b71c4QpXkfKCKDoIlgn5SKZZPXHGtx1auRJnT+e5Eh9r6c4N3qhLZq7/RVvkTa9NtzvGTfxQNZXfZDblvtVA8LAlvlXiAqOv+N+Q1lFagkIx1GrUvUPvtEDTGMrIjPJGeA88KLKrVz8YXD2Abm13FTikBQR4KRo9/RPThYns5AeGWYOQ0gHJzsWl5jDcGIqYBBG4qtksJKLjByPGPLm0zgPLX6FwAWhqlpNX7DJwNRot/RDhXbC//hVSPBiPHP16tpQQWxD0mkAtGki/mF69c922xU0rghrHv/1UYDkaTH2R4++Tk38Ve2V5I7dB+ljdgG5E8xt3vNZQlEB099ZcoL19bTfWjwmuRicyfXtuqPX84Nf0BkLpmqupEVE5G7p9+b6V9VQICCrKbjfVduCghd1DeXP2xrXjqioynL1rqPg5cXndptVlwRZ6oViioemwMp85Mi+oAsLhu0mrjKrJn61h6stqANc+9TirzNehegtknqYg8Fx1Pf7rWoLoO2lcP+iPA5pZIq40R5VknNf1hrYF1Vwqyya5uUfdLYFtT0mqTF+FJZ2z6m3oG+yp1ZPvuuUOM9R1LpcX14JKr+ujWVOZUvRN81X6io2d+so31ADDjW1ptzhtLuvyIhwaKV1smpmYdE06AvOt3bjVE5fMFMYltx9O/+J7bTOBcT+JpRIcBp0EXV0BeiYynDzSqodlyH7nkfXeiZgS43efU86LWbic19UMz8ZutfxIZO/2j84+5W4UhPGfVNVBFDzr25Viz4qEFK+BlPpnoclUPAbdWDCb8apC9a31Z/dLSBAA0FtuU3x56XtC3PXXWBZD3HbvwuozO5FsZr+UJFCn0xXcawwFAQqL7No9lLqxXrDZt2rQJjv8BK5A79F3AKfwAAAAASUVORK5CYII=">
+                        <span style="margin-left: 4px; color: gray">{{project.liked.length}}</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="secondary center" *ngIf="participatedPopularProjects.length == 0">
+        <span> Oops !! </span> <br>
+        <span> You have not participated in any project yet </span> <br> <br>
+        <button class="btnCreate">Participated Now</button>
+    </div>
+</div>

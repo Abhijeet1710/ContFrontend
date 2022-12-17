@@ -1,0 +1,144 @@
+.myProjectContent {
+    width: 92%;
+    margin: auto;  
+}
+
+.ago {
+    margin-top: 30px;
+}
+
+.projName {
+    /* color: #7AAEEB; */
+    color: #4d98ef;
+    cursor: pointer;
+}
+
+.projName:hover {
+    text-decoration: underline;
+}
+
+.projName:hover {
+    color: #7AAEEB;
+}
+
+.chip {
+    color: black;
+    background-color: rgb(193, 193, 246);
+    border-radius: 10px;
+    padding: 0px 4px;
+}
+
+.hc {
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.box {
+    width: 96%;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+.searchBox {
+    width: 96%;
+    border-radius: 4px;
+    color: white;
+    border: 1px solid rgb(68, 68, 68);
+    padding: 10px 10px;
+    
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: transparent;
+}
+
+.clr:hover {
+    color: #4d98ef;
+}
+
+.clr {
+    margin-top: 10px;
+}
+
+.filterMsg {
+    display: flex;
+    flex-direction: column;
+}
+
+.btnCreate {
+    margin-top: 20px;
+    margin-left: 20px;
+    background-color: rgb(5, 138, 5);
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin-right: 20px;
+    cursor: pointer;
+    border: none;
+    color: white;
+}
+
+.btnCreate:hover {
+    background-color: rgb(2, 109, 2);
+}
+
+
+.searchSec {
+    display: flex;
+    align-items: center;
+    
+}
+.lg {
+    display: none;
+}
+
+.addBtn {
+    margin-left: 20px;
+}
+
+.nothingBox {
+    border: 1px solid rgb(68, 68, 68);
+    border-radius: 6px;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+    margin: 70px 0px;
+    padding: 40px 0px;
+}
+.addBtn2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    border-radius: 8px;
+    padding: 6px  ;
+    background-color: green;
+
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.addBtn2:hover {
+    background-color: rgb(0, 110, 0);
+}
+
+@media only screen and (min-width: 1000px) { 
+
+    .myProjectContent {
+        width: 100%;
+    }
+
+    .filterMsg {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .lg {
+        display: block;
+    }
+}

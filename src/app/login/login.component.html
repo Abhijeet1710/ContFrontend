@@ -1,0 +1,51 @@
+<div class="card">
+    <div *ngIf="signUpOpened" class="content">
+        <h2>Sign Up </h2>
+
+        <form class="example-form">
+            <mat-form-field class="example-full-width" class="ip" appearance="fill">
+                <mat-label>Full Name</mat-label>
+                <input matInput name="fullName" placeholder="Ex. Abhijeet Khamkar" [(ngModel)] = "signupForm.name" />
+            </mat-form-field>
+            <mat-form-field class="example-full-width" class="ip" appearance="fill">
+                <mat-label>Username</mat-label>
+                <input name="userName" matInput placeholder="Ex. Abhijeet1710" [(ngModel)] = "signupForm.userName">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width" class="ip" appearance="fill">
+                <mat-label>Email</mat-label>
+                <input name="email" matInput placeholder="Ex. ex@host.com" [(ngModel)] = "signupForm.email">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" class="ip" appearance="fill">
+                <mat-label>Address</mat-label>
+                <textarea name="address" matInput placeholder="Ex. Sakori Post Belhe, Junnar Pune 412410, India"></textarea>
+            </mat-form-field>
+            <mat-form-field class="example-full-width" class="ip" appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput name="password" placeholder="Ex. Abhijeet@17810" [(ngModel)] = "signupForm.password" />
+            </mat-form-field>
+
+            <button class="btn" (click) = "signUp()"> Sign Up </button>
+            <div style="margin-bottom: 20px; "> Already a user ? <a (click)="openSignInContent()"
+                    style="color: rgb(91, 91, 251); cursor: pointer"> Sign In </a> </div>
+        </form>
+    </div>
+
+    <div *ngIf="!signUpOpened" class="content">
+        <form>
+            <h2>Sign In </h2>
+            <mat-form-field class="example-full-width" class="ip" appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput name="email" placeholder="Ex. ex@host.com"  [(ngModel)] = "loginForm.email">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" class="ip" appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput name="password" placeholder="Ex. Abhijeet@17810"  [(ngModel)] = "loginForm.password" />
+            </mat-form-field>
+
+            <button type="submit" class="btn" (click) = "signIn()"> Sign In </button>
+        </form>
+        <div style="margin-bottom: 20px; "> New to Cont ? <a (click)="openSignUpContent()"
+                style="color: rgb(91, 91, 251); cursor: pointer"> Sign Up </a> </div>
+    </div>
+</div>

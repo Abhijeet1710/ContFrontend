@@ -1,0 +1,184 @@
+.main {
+    width: 90%;
+    margin: auto;
+    padding-top: 50px;
+}
+
+.box {
+    height: 35px;
+    width: fit-content;
+    border: 1px solid rgb(36, 36, 36);
+    background-color: #161B22;
+    border-radius: 6px;
+
+    padding: 8px 14px;
+    cursor: pointer;
+
+    color: white;
+}
+
+.ipBox {
+    margin-top: 8px;
+    height: 28px;
+    width: fit-content;
+    border: 1px solid rgb(36, 36, 36);
+    background-color: transparent;
+    border-radius: 6px;
+
+    padding: 4px 10px;
+
+    color: white;
+}
+
+.box:hover {
+    background-color: #202731;
+}
+
+.admin_name {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.profilePic {
+    border-radius: 50%;
+    height: 26px;
+    width: 26px;
+    border: 1px solid black;
+}
+
+.vc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.projectNameIp {
+    padding: 8px 14px;
+    margin: 0;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: white;
+
+    height: 28px;
+    border: 1px solid rgb(36, 36, 36);
+    background-color: #161B22;
+    border-radius: 6px;
+    
+    width: fit-content;
+}
+
+.sm {
+    display: block;
+}
+
+.lg {
+    display: none;
+}
+
+.projName {
+    margin-top: 18px;
+}
+
+.projectNameIp:focus{
+    border: 1px solid rgb(141, 141, 255);
+}
+
+.ip {
+    width: 90%;
+    background-color: transparent;
+    border-radius: 6px;
+
+    color: white;
+    padding: 15px 4px;
+}
+
+.ip:focus {
+    border: 1px solid blue;
+}
+
+.ipOpenings { 
+    width: fit-content;
+    
+    outline: none;
+}
+
+.footer {
+    display: flex;
+    padding-top: 40px;
+    flex-direction: column;
+}
+
+.btns {
+    margin-top: 40px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.btnCreate {
+    background-color: rgb(5, 138, 5);
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin-right: 20px;
+    cursor: pointer;
+    border: none;
+    color: white;
+}
+
+.btnCreate:hover {
+    background-color: rgb(2, 109, 2);
+}
+
+.btnCancel {
+    background-color: transparent;
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin-right: 20px;
+    cursor: pointer;
+    border: 1px solid rgb(36, 36, 36);
+    color: white;
+}
+
+.btnCancel:hover {
+    background-color: #161B22;
+}
+
+@media only screen and (min-width: 1000px) { 
+    .main {
+        width: 60%;
+        margin: auto;
+        padding: 50px 0px;
+    }
+
+    .admin_name {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .slash {
+        margin-top: 28px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .sm {
+        display: none;
+    }
+
+    .lg {
+        display: block;
+    }
+
+    .projName {
+        margin-top: 0px;
+    }
+
+    .footer {
+        display: flex;
+        flex-direction: row;
+        padding-top: 40px;
+        justify-content: space-between;
+    }
+
+}
