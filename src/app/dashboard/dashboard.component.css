@@ -8,9 +8,7 @@
 }
 
 .vchc {
-    height: 50vh;
-    width: 100%;
-
+    margin: 40px 0px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -200,6 +198,14 @@ form > label, form > div > label {
     }
     .info-div {
         margin: 20px 0px 20px 0px;
+    }
+
+    .vchc {
+        width: 100%;
+        height: 60vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
     
