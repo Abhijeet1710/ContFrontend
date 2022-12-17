@@ -12,6 +12,7 @@ export class DashboardComponent implements OnInit {
 
   editing: boolean = false;
   userData: any;
+  savingUnderProgress = false;
 
   myPopularProjects:any;
   participatedPopularProjects:any;
@@ -87,11 +88,13 @@ export class DashboardComponent implements OnInit {
   }
 
   updateUserData() {
+    this.savingUnderProgress = true
     this.dashboardService.updateUserData(this.userData)
       .subscribe((data: any) => {
         console.log(data);
 
         localStorage.setItem('user', JSON.stringify(data.data));
+        this.savingUnderProgress = false;;
         this.loadUser();
         this._snackBar.open(`😊 Updated Succesfully`, '', { duration: 2000 });
         this.closeEditProfile();

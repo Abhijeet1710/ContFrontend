@@ -111,7 +111,13 @@
                 </div>
 
 
-                <button class="saveBtn" (click)="updateUserData()">Save</button>
+                <button class="saveBtn" (click)="updateUserData()">
+                    <span *ngIf="!savingUnderProgress">Save</span>
+                    <span *ngIf="savingUnderProgress"> 
+                        <img class="loader" width="14px" height="14px" style="padding: 0px;" 
+                            src="../../assets//loader1.png" />
+                    </span>
+                </button>
                 <button class="cancalBtn" style="margin-left: 10px;" (click)="closeEditProfile()">Cancel</button>
             </form>
         </div>
@@ -127,10 +133,10 @@
                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAf0lEQVRIie2UMRJAMBBFf4xDKJzE6LiHzr3cSxeFW3yFDSmIBEOzbyYzv/jZt2kCKH9jXCDJi+4MYJDcASiCg40xqYIknGCDwtkFkjV3qkDveM6V4G4nC5XfQAUqUMEHgtzLE4Ay5tOL6FgX/Bf0InmKlVlpkGxJjnKaFxZRVhby6Fr+zZDCrgAAAABJRU5ErkJggg==">
                     <span style="margin-left: 10px;">Overview</span>
                 </ng-template>
-                <div class="vchc" *ngIf="!myPopularProjects || !participatedPopularProjects"> <img class="loader" src="../../assets/loader1.png" /> </div>
-                <app-overview 
-                 *ngIf="myPopularProjects && participatedPopularProjects" [myPopularProjects]="myPopularProjects"
-                    [participatedPopularProjects]="participatedPopularProjects">
+                <div class="vchc" *ngIf="!myPopularProjects || !participatedPopularProjects"> <img class="loader"
+                        src="../../assets/loader1.png" /> </div>
+                <app-overview *ngIf="myPopularProjects && participatedPopularProjects"
+                    [myPopularProjects]="myPopularProjects" [participatedPopularProjects]="participatedPopularProjects">
                 </app-overview>
             </mat-tab>
 
@@ -150,7 +156,8 @@
                     <span style="margin-left: 10px;">Participated</span>
                 </ng-template>
 
-                <app-participated-projects *ngIf="participatedProjects" [participatedProjects]="participatedProjects"></app-participated-projects>
+                <app-participated-projects *ngIf="participatedProjects"
+                    [participatedProjects]="participatedProjects"></app-participated-projects>
             </mat-tab>
             <mat-tab>
                 <ng-template mat-tab-label>

@@ -122,6 +122,8 @@ form > input, textarea, form > div > input {
 
 
 .saveBtn {
+    width: 100px;
+    height: 35px;
     cursor: pointer;
     color: white;
     padding: 8px 24px;
@@ -136,6 +138,7 @@ form > input, textarea, form > div > input {
 .cancalBtn {
     cursor: pointer;
     color: white;
+    height: 35px;
     padding: 8px 24px;
     background-color: transparent;
     outline: none;
