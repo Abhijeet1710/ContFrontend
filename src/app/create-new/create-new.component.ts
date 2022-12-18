@@ -38,7 +38,6 @@ export class CreateNewComponent implements OnInit {
 
   addProject () {
     if(this.creatingNewInprogres) return;
-    this.creatingNewInprogres = true;
 
     this.projectData.techStackRequire = this.techStackRequire.split(",");
     this.projectData.projectDomain = this.projectDomain.split(",");
@@ -55,6 +54,7 @@ export class CreateNewComponent implements OnInit {
         alert("Fill all fields");
         return;
       }
+      this.creatingNewInprogres = true;
 
       this.createNewService.addNewProject(this.projectData).subscribe(
         (res) => {

@@ -8,7 +8,7 @@
 }
 
 .vchc {
-    margin-top: 40px;
+    margin-top: 80px;
     margin-bottom: 300px;
     display: flex;
     justify-content: center;
@@ -76,8 +76,8 @@ p, span {
 
 .imageDiv {
     display: flex;
-    justify-content: start;
-    margin: 10px;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .name-username-lg {
@@ -153,7 +153,7 @@ form > input, textarea, form > div > input {
 }
 
 .cancalBtn:hover {
-    background-color: #0d1117;
+    background-color: #161b22;;
 }
 
 form > label, form > div > label {
@@ -163,7 +163,7 @@ form > label, form > div > label {
 .editSec {
     padding: 10px 20px;
     border-radius: 8px;
-    background-color: #161b22;
+    /* background-color: #161b22; */
 }
 
 @media only screen and (min-width: 1000px) {

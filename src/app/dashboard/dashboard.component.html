@@ -5,7 +5,7 @@
             <img [src]="userData.profilePicture" class="profilePic" />
 
             <div class="name-username-sm">
-                <h1 class="name"> {{userData.name}} </h1>
+                <h2 class="name"> {{userData.name}} </h2>
                 <p class="userName">{{userData.userName}}</p>
             </div>
         </div>
@@ -125,17 +125,18 @@
 
 
     <!-- Main Content -->
-    <div class="right">
-        <mat-tab-group>
+    <div class="right"  >
+        <div class="vchc" *ngIf="!myProjects || !participatedProjects"> <img class="loader"
+            src="../../assets/loader1.png" /> </div>
+
+        <mat-tab-group *ngIf="myProjects && participatedProjects">
             <mat-tab>
                 <ng-template mat-tab-label>
                     <img
                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAf0lEQVRIie2UMRJAMBBFf4xDKJzE6LiHzr3cSxeFW3yFDSmIBEOzbyYzv/jZt2kCKH9jXCDJi+4MYJDcASiCg40xqYIknGCDwtkFkjV3qkDveM6V4G4nC5XfQAUqUMEHgtzLE4Ay5tOL6FgX/Bf0InmKlVlpkGxJjnKaFxZRVhby6Fr+zZDCrgAAAABJRU5ErkJggg==">
                     <span style="margin-left: 10px;">Overview</span>
                 </ng-template>
-                <div class="vchc" *ngIf="!myPopularProjects || !participatedPopularProjects"> <img class="loader"
-                        src="../../assets/loader1.png" /> </div>
-                <app-overview *ngIf="myPopularProjects && participatedPopularProjects"
+                <app-overview
                     [myPopularProjects]="myPopularProjects" [participatedPopularProjects]="participatedPopularProjects">
                 </app-overview>
             </mat-tab>
