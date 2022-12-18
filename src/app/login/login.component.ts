@@ -44,12 +44,14 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('user', JSON.stringify(d.data));
 
       // console.log(JSON.parse(localStorage.getItem('user')).name);
-          this.signInInprogres = false;
+      this.signInInprogres = false;
        this.route.navigate(['/dashboard']);
     }, (err) => {
       console.log(err);
       if(err.error.message) this._snackBar.open(`${err.error.message}`, '', {duration: 2000});
       else this._snackBar.open(`${err.message}`, '', {duration: 2000});
+
+      this.signInInprogres = false;
     })
   }
 
@@ -64,6 +66,7 @@ export class LoginComponent implements OnInit {
       this.signUpOpened = false;
     }, (err) => {
       console.log(err.error);
+      this.signUpInprogres = false;
       this._snackBar.open(`${err.error.message}`, '', {duration: 3000});  
     })
   }
