@@ -108,7 +108,7 @@ form > input, textarea, form > div > input {
     background-color: transparent;
     border: none;
     outline: none;
-    padding: 6px 10px;
+    padding: 8px 10px;
     border-radius: 4px;
     border: 1px solid rgb(68, 68, 68);
     color: white;
