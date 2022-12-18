@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit {
 
   constructor(private route: Router, private _snackBar: MatSnackBar, private loginService : LoginService) { 
     console.log(localStorage.getItem('user'));
-    
   }
 
   ngOnInit(): void {

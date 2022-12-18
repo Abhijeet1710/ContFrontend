@@ -1,6 +1,6 @@
 <div class="dashboardBody">
     <!-- Left Profile Panel -->
-    <div class="left">
+    <div class="left" *ngIf = "userData">
         <div class="imageDiv">
             <img [src]="userData.profilePicture" class="profilePic" />
 
@@ -14,10 +14,10 @@
                 <h1 class="name"> {{userData.name}} </h1>
                 <p class="userName">{{userData.userName}}</p>
             </div>
-            <div style="display: flex; flex-direction:column; justify-content: center; align-items: center;">
-                <p style="margin: 0px 4px;">  {{userData.tagLine}} </p>
+            <div style="display: flex; flex-direction:column; justify-content: center; align-items: center;" class="paddingLR">
+                <p>  {{userData.tagLine}} </p>
 
-                <button style="margin-top: 8px;" class="editProfileBtn" (click)="openEditProfile()"> Edit Profile </button>
+                <button style="margin-top: 4px;" class="editProfileBtn" (click)="openEditProfile()"> Edit Profile </button>
             </div>
             <div class="info-div">
                 <div class="hc" *ngIf="userData.company.length > 0">

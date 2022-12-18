@@ -21,14 +21,15 @@ export class DashboardComponent implements OnInit {
   participatedProjects:any;
 
   all: any;
+  user:any;
 
   constructor(private router: Router, private _snackBar: MatSnackBar, private dashboardService: DashboardService) {
-    const user = JSON.parse(localStorage.getItem('user'));
-
-    this.userData = { ...user };
-
-    if (!user) {
+    this.user = JSON.parse(localStorage.getItem('user'));
+    
+    if (!this.user) {
       router.navigate(['SignIn'])
+    }else {
+      // this.userData = { ...user };
     }
   }
 
@@ -38,6 +39,17 @@ export class DashboardComponent implements OnInit {
     let pp = [];
     let ppp = [];
 
+    this.dashboardService.getUser(this.user.userId).subscribe(
+      (res) => {
+        console.log(res);
+        
+        this.userData = res.data[0];
+      },
+      (err) => {
+        console.log(err);
+        
+      }
+    )
 
     this.dashboardService.getAllProjects().subscribe(
       (res: any) => {
@@ -74,8 +86,6 @@ export class DashboardComponent implements OnInit {
 
       }
     )
-
-    
 
   }
 

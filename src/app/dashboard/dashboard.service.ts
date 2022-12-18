@@ -19,4 +19,8 @@ export class DashboardService {
   getAllProjects = () : Observable<any> => {
     return this.http.get(`${this.url}/projects`);
   }
+
+  getUser = (userId) : Observable<any> => {
+    return this.http.get(`${this.url}/user/${userId}`);
+  }
 }

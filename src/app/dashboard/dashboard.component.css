@@ -15,6 +15,9 @@
     align-items: center;
 }
 
+.paddingLR {
+    padding: 0px 20px;
+}
 
 .profilePic {
     border-radius: 50%;
@@ -209,5 +212,10 @@ form > label, form > div > label {
         justify-content: center;
         align-items: center;
     }
+
+    .paddingLR {
+        padding: 0px 0px;
+    }
+
 }
     
