@@ -3,8 +3,8 @@
         <div class="box">
             <div class="searchSec">
                 <input [(ngModel)]="variable" (ngModelChange)="filterData($event)" class="searchBox" type="text"
-                    placeholder="Find a Project ...">
-                    <button routerLink="/new" class="btnCreate">Create</button>
+                    placeholder="Type to search">
+                <button routerLink="/new" class="btnCreate">Create</button>
             </div>
 
             <div *ngIf="variable.length > 0" style="margin-bottom: 30px;">
@@ -14,8 +14,8 @@
                             {{variable}} </b> sorted by last updated </span>
                     <span style="display: flex; align-items: center; cursor: pointer; margin-bottom: 4px;" class="clr"
                         (click)="clearFilter()">
-                        <img
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAuElEQVRIie2UTQ7CIBCF33iOxrULPETryngPL8zGPU00eIjnwomphCKUsjF9KzIT3jc/BGBTiUheSI5cLkfyPPWUAOAAdJV1OhHZzwFYaf42Ffn47tYwTOkX4AagB/CI5J4ATgBsNi2ytEHjhqSfxD1Jo7khvFQC8CSPmjuQvM/EFgPCak1w9rELpYCvTlKVxwDNX1FOB01H1HzJzZ+pVYPYKLzmbArwf3/RuIKnSwGulRCnHpvy9QIPl0jvxoZVvQAAAABJRU5ErkJggg==">
+                        <img width="16px" height="16px"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABmJLR0QA/wD/AP+gvaeTAAAEy0lEQVR4nO2cP6gdRRTGv3lPMCGKhdokxpRqkQiJEIuAYCUWYhDTKIrYR230NWpKbYwk6aKChYUImi7GyjKElGK0UtHKfzxiBCFXP4s7F26WvTNnZs7M7r57fuW+O985e747d+fPvgEMwzAMwzAMwzAMwzAMwzAMw9jpOG1BkrsBnADwHIAHAOwDsKkdZ8T8DeBHAF8BOO+cuxb6sKoBJI8B+ATA/Zq6E2YG4ByA151zN/s+oGYAyWcAfIr1+rZL+RLAU30mbGiokzwE4GNY8VfxBIB3+/5Q3ANIbgK4AuBwqdYOZwbgUPeZoNEDTsKKL+E2AC93Lxb1AJL7AXwL4I4SnTXiG+fcweULpT3gLKz4KRxQUyJ5nHH+IfmgWtAJECuIVpA7Sf4sMOAtlYATopUB7wuK/z3JXSoBJ0R1A0geITmLxPmP5OMK9zM5qhpAcpPkVcG3/0Ol+5kctQ14VVD8X0nerXAjWySPluoI4hwluaWoV8cAkvtJXhcY8ILCTZzyWtskHy3VC8Q5QvJPH+sdJc1qBlwQFP9rkqWTu1MdzSomdIq/oNiEKgaw0Zi/p/hVTFhRfBUT1A1gozF/oPiqJkSKX2xCDQMkY/5rJG8vSHpLEIOcm5D9YOb8gbstjJX1YI6Jpoo1GfOTPEzyD2FhsnoCZd/85RhZRseEU4SajvlZ0QQ2Kr6PFSRF6DVBsr+TvDc32Z6Y6iawYfF9vCBSkWZj/p7YaiawcfF9zCBSkSZj/kD8YhM4QPF93CASgVGs87PABA5UfB87SKzxqNb5mWECByy+zzlIrPFpQdJFY/5UmDZ23078rPpiXyxoqOFo1/mZ1hMkVCm+zzXIqkajX+enngnViu/zDLKqUfMxfw4sN6Fq8X2OaQZwwDF/DgUmVC++zy/ZgEHH/DlkmNCk+D63JAM2AOi8KtEWh/S3+kbzBboFknspG7qN5ScoZZzf7QXVtjeX8kvqAYtGks32MTyEc4vfzIRcAzZIXhbcwJDD0NLiL6i90R8k1PBhkjcj7YeaiGkVf0E1E2KBY41tKaI83yCxxntI/iBIvtViXPLCGhtsb0ZyDiIReFKQeIvl6OxVTQ5oQiyYVOQLQeI1N2SKl5Q5kAmxQFKRweYGVFzP5wAmxIKkCDWfG7DCZgobmxALkCIknRt8VJLwUrxqO1lsaEJMPFWsydyADbYR2ciEmHCOYPW5Ae3VxKCgdG7wdk7CS3HeiOhrvbcj6QnZ96JugBeVzg0eyk3cx1llgvarIyETSr9I+gZ44SZzgx4Tai0Z9JlQVHyvW80A6dzgRYWbWJhQewN92YTi4nvNOgZ48VcEBvxG8h6FG7F/0usRbzo3mCJVDfABRrtvMAaqG+CDSOYGdlRBRQOazA2mSBMDfKAmc4OpkWpA6Zj9cwDHSzTWjOvOubuWL5SemHUSwF+FGuvET90LRQY4534B8GaJxppxqXtB69jKywAeKdXa4cwAHHTOfbd8sfjYSufcvwBeAnCjVGuHc6ZbfED36OKnAXyG+fmYxq1cxPzo4ln3DypHFwOAc+4CgMfQ86BZY2YA3sOK4gN1jq/fBeBZAM9jfnz9fVivM6VvYH58/SUAH/T97BiGYRiGYRiGYRiGYRiGYRiGsV78D41dJMEkAjpwAAAAAElFTkSuQmCC">
                         <span style="margin-left: 4px;">Clear Filtered</span>
                     </span>
                 </div>
@@ -50,6 +50,6 @@
         <h3>Create your first Cont project</h3>
         <span style="font-weight: lighter;">Projects are a customizable, flexible tool for planning and tracking your
             team.</span>
-        <button class="btnCreate" routerLink="/new"> Create </button>
+        <button class="btnCreate" style="margin-top: 20px;" routerLink="/new"> Create </button>
     </div>
 </div>

@@ -26,8 +26,13 @@
                     📱 currently working on MEAN stack <br>
                 </span>
             </div>
-            <img (click)="updateAboutMe()" width="20px" height="18px" style="cursor: pointer;"
+
+            <img *ngIf="!updatingAboutMeInprogres" (click)="updateAboutMe()" width="20px" height="18px" style="cursor: pointer;"
                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nO3UzyoFURwH8GElyr+6PImFYkM2kpUH8ABeQdnJRmHHjh0PYWNlKSlSSimylgX3fjS5aYxj3MOZsrjf5Zzf/D7nd5o5WdbNfwiWsY1GncgkXr3nAQt1IP249DnP6E0Nbfmaw9TIFJol5BHjKZEBXAemWUqG5MFuADnIUgZzaJWQO4ymRIZwG5hmPqbJCNbz/6KiZj+A7MUgwzhtv/iE2UDNYgC5wWAMdFxqkGMzhfUG7ks1rWJNp9BJYLcfGI4C6ztRSLvRGM6/wTYDz6/y6ycaKhzPmZ/TxPSvkEhs409Ih9gF+pJAFdgLJpIhFR/IWnKkdOWsYgU9tUHdZIG8AXfnYXxwGVtiAAAAAElFTkSuQmCC">
+            
+                <span *ngIf="updatingAboutMeInprogres">
+                <img class="loader" width="18px" height="18px" style="padding: 0px;" src="../../assets//loader1.png" />
+            </span>
         </div>
         <div class="secOne">
             <textarea [(ngModel)]="userData.aboutMe" class="aboutMeTA" placeholder="About Me"></textarea>
@@ -38,7 +43,8 @@
         <div class="card" *ngFor="let project of myPopularProjects">
             <div>
                 <span class="projName" (click)="openProject(project)"> {{project.projectName}} </span> <br><br>
-                <span rows="10" style="font-weight: lighter; color: gray;"> {{project.projectDescription.substring(0, 100)}} ... </span>
+                <span rows="10" style="font-weight: lighter; color: gray;"> {{project.projectDescription.substring(0,
+                    100)}} ... </span>
             </div>
             <div style="margin-top: 10px;">
                 <div style="display: flex; justify-content: space-between;">
@@ -69,7 +75,8 @@
         <div class="card" *ngFor="let project of participatedPopularProjects">
             <div>
                 <span class="projName" (click)="openProject(project)"> {{project.projectName}} </span> <br><br>
-                <span style="font-weight: lighter; color: gray;"> {{project.projectDescription.substring(0, 100)}} ... </span>
+                <span style="font-weight: lighter; color: gray;"> {{project.projectDescription.substring(0, 100)}} ...
+                </span>
             </div>
             <div style="margin-top: 10px;">
                 <div style="display: flex; justify-content: space-between;">

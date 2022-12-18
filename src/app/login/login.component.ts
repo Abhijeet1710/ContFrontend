@@ -10,7 +10,8 @@ import { LoginService } from './login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  signUpInprogres = false;
+  signInInprogres = false;
   signUpOpened: boolean = true;
   loginForm:any = {};
   signupForm:any = {};
@@ -34,6 +35,8 @@ export class LoginComponent implements OnInit {
   }
 
   signIn() {  
+    this.signInInprogres = true;
+
     console.log(this.loginForm.email);
     this.loginService.loginUser(this.loginForm)
     .subscribe((d : any) => {
@@ -41,8 +44,8 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('user', JSON.stringify(d.data));
 
       // console.log(JSON.parse(localStorage.getItem('user')).name);
-      
-      this.route.navigate(['/dashboard']);
+          this.signInInprogres = false;
+       this.route.navigate(['/dashboard']);
     }, (err) => {
       console.log(err);
       if(err.error.message) this._snackBar.open(`${err.error.message}`, '', {duration: 2000});
@@ -51,11 +54,14 @@ export class LoginComponent implements OnInit {
   }
 
   signUp() {
+    this.signUpInprogres = true;
     console.log(this.signupForm.email);
 
     this.loginService.signUpUser(this.signupForm)
     .subscribe((d : any) => {
+      this.signUpInprogres = false;
       this._snackBar.open(this.signupForm.userName+" Sign Up is Successfull ", '', {duration: 2000});      
+      this.signUpOpened = false;
     }, (err) => {
       console.log(err.error);
       this._snackBar.open(`${err.error.message}`, '', {duration: 3000});  

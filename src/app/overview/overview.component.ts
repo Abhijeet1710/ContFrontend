@@ -12,6 +12,7 @@ export class OverviewComponent implements OnInit {
   userData: any;
   aboutMe: [];
   editingAboutMe = false;
+  updatingAboutMeInprogres = false;
 
   @Input() myPopularProjects;   
   @Input() participatedPopularProjects;    
@@ -26,12 +27,15 @@ export class OverviewComponent implements OnInit {
   }
 
   updateAboutMe() {
+    this.updatingAboutMeInprogres = true;
+
     this.dashboardService.updateUserData(this.userData)
       .subscribe((data: any) => {
         console.log(data);
 
         localStorage.setItem('user', JSON.stringify(data.data));
 
+        this.updatingAboutMeInprogres = false;
         this.loadUser();
         this._snackBar.open(`😊 Updated Succesfully`, '', { duration: 2000 });
         this.editingAboutMe = false;
