@@ -76,7 +76,7 @@ p, span {
 
 .imageDiv {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin: 20px 20px 0px 20px;
 }
 
@@ -108,18 +108,16 @@ form > input, textarea, form > div > input {
     background-color: transparent;
     border: none;
     outline: none;
-
-    padding: 4px 10px;
-
+    padding: 6px 10px;
     border-radius: 4px;
-
     border: 1px solid rgb(68, 68, 68);
     color: white;
-
     margin-bottom: 8px;
 }
 
-
+form > input:focus, form > textarea:focus, form > div> input:focus {
+    outline: 1px solid blueviolet;
+}
 
 .saveBtn {
     width: 100px;
