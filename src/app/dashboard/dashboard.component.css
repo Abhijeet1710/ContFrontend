@@ -76,8 +76,8 @@ p, span {
 
 .imageDiv {
     display: flex;
-    justify-content: center;
-    margin-top: 20px;
+    justify-content: space-between;
+    margin: 20px 20px 0px 20px;
 }
 
 .name-username-lg {
