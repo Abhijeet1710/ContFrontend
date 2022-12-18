@@ -8,9 +8,9 @@
             </div>
         </div>
         <div style="border-top: 1px solid rgb(36, 36, 36); margin: 6px 0px;"></div>
-        <span class="tertiory">
-            <span *ngFor="let pt of aboutMe"> <span> ⚾ {{pt}} </span> <br> </span>
-        </span>
+        <div class="tertiory" style="margin: 30px 0px;">
+            <span *ngFor="let pt of aboutMe"> <span> - {{pt}} </span> <br> </span>
+        </div>
     </div>
 
     <div *ngIf="editingAboutMe">
@@ -26,16 +26,17 @@
                     📱 currently working on MEAN stack <br>
                 </span>
             </div>
-
-            <img *ngIf="!updatingAboutMeInprogres" (click)="updateAboutMe()" width="20px" height="18px" style="cursor: pointer;"
-                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nO3UzyoFURwH8GElyr+6PImFYkM2kpUH8ABeQdnJRmHHjh0PYWNlKSlSSimylgX3fjS5aYxj3MOZsrjf5Zzf/D7nd5o5WdbNfwiWsY1GncgkXr3nAQt1IP249DnP6E0Nbfmaw9TIFJol5BHjKZEBXAemWUqG5MFuADnIUgZzaJWQO4ymRIZwG5hmPqbJCNbz/6KiZj+A7MUgwzhtv/iE2UDNYgC5wWAMdFxqkGMzhfUG7ks1rWJNp9BJYLcfGI4C6ztRSLvRGM6/wTYDz6/y6ycaKhzPmZ/TxPSvkEhs409Ih9gF+pJAFdgLJpIhFR/IWnKkdOWsYgU9tUHdZIG8AXfnYXxwGVtiAAAAAElFTkSuQmCC">
-            
-                <span *ngIf="updatingAboutMeInprogres">
-                <img class="loader" width="18px" height="18px" style="padding: 0px;" src="../../assets//loader1.png" />
-            </span>
         </div>
         <div class="secOne">
             <textarea [(ngModel)]="userData.aboutMe" class="aboutMeTA" placeholder="About Me"></textarea>
+            <button class="btnCreate" (click)="updateAboutMe()">
+                <span *ngIf="!updatingAboutMeInprogres">Save</span>
+                <span *ngIf="updatingAboutMeInprogres">
+                    <img class="loader" width="14px" height="14px" style="padding: 0px;"
+                        src="../../assets//loader1.png" />
+                </span>
+            </button>
+            <button class="btnCancel" (click)="editingAboutMe = false">Cancel</button>
         </div>
     </div>
     <span style="font-size: 18px;">My Popular Projects </span>
@@ -64,7 +65,7 @@
         </div>
     </div>
 
-    <div class="secondary center" *ngIf="myPopularProjects.length == 0">
+    <div class="secondary cent" *ngIf="myPopularProjects.length == 0">
         <span> Oops !! </span> <br>
         <span> You have not created any project yet </span> <br> <br>
         <button routerLink="/new" class="btnCreate">Create One</button>
@@ -97,7 +98,7 @@
 
     </div>
 
-    <div class="secondary center" *ngIf="participatedPopularProjects.length == 0">
+    <div class="secondary cent" *ngIf="participatedPopularProjects.length == 0">
         <span> Oops !! </span> <br>
         <span> You have not participated in any project yet </span> <br> <br>
         <button class="btnCreate">Participated Now</button>

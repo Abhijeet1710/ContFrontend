@@ -1,4 +1,10 @@
-<div class="dashboardBody">
+<!-- Loader -->
+<div class="vchc" *ngIf="!userData || !myProjects || !participatedProjects"> <img class="loader"
+    src="../../assets/loader1.png" /> </div>
+
+
+<div class="dashboardBody" *ngIf="userData && myProjects && participatedProjects">
+    
     <!-- Left Profile Panel -->
     <div class="left" *ngIf = "userData">
         <div class="imageDiv">
@@ -17,7 +23,7 @@
             <div style="display: flex; flex-direction:column; justify-content: center; align-items: center;" class="paddingLR">
                 <p>  {{userData.tagLine}} </p>
 
-                <button style="margin-top: 4px;" class="editProfileBtn" (click)="openEditProfile()"> Edit Profile </button>
+                <button style="margin-top: 4px; height: 35px;" class="editProfileBtn" (click)="openEditProfile()"> Edit Profile </button>
             </div>
             <div class="info-div">
                 <div class="hc" *ngIf="userData.company.length > 0">
@@ -123,13 +129,8 @@
         </div>
     </div>
 
-
     <!-- Main Content -->
     <div class="right">
-
-        <div class="vchc" *ngIf="!myProjects || !participatedProjects"> <img class="loader"
-                src="../../assets/loader1.png" /> </div>
-
         <mat-tab-group *ngIf="myProjects && participatedProjects">
             <mat-tab>
                 <ng-template mat-tab-label>

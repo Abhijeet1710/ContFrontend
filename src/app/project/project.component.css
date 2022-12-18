@@ -64,6 +64,11 @@
     background-color: #161B22;
 }
 
+.username:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .box {
     background-color: transparent;
     border-radius: 4px;
@@ -81,8 +86,8 @@
 }
 
 .userCard {
-    width: 100%;
-    margin: 0px 10px;
+    width: 90%;
+    margin: auto
 }
 
 

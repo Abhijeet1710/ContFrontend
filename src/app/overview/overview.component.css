@@ -47,6 +47,16 @@
     text-align: center;
 }
 
+.cent {
+    width: 98%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border: 1px solid rgb(68, 68, 68);
+    border-radius: 8px;
+    padding: 30px 0px;
+    text-align: center;
+}
+
 .secTwo {
     margin: 10px 0px 40px 0px;
 
@@ -105,13 +115,30 @@
 }
 
 .btnCreate {
+    width: 130px;
+    height: 40px;
     background-color: rgb(5, 138, 5);
     border-radius: 4px;
-    padding: 10px 20px;
     margin-right: 20px;
     cursor: pointer;
     border: none;
     color: white;
+}
+
+.btnCancel {
+    width: 130px;
+    cursor: pointer;
+    color: white;
+    height: 40px;
+    background-color: transparent;
+    outline: none;
+    border: 1px solid #28374d;
+
+    border-radius: 6px;
+    margin-top: 14px;
+}
+.btnCancel:hover {
+    background-color: #161b22;;
 }
 
 .btnCreate:hover {

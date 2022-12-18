@@ -6,14 +6,14 @@
         <div class="bl vc" style="font-size: 18px; display: flex; justify-content: space-between;">
             <div *ngIf="contributors[0]" style="display: flex;">
                 <!-- <img class="profilePic" [src]="contributors[0].profilePicture"> -->
-                 <span > <!-- style=" margin-left: 10px; margin-top: 9px;" -->
+                <span> <!-- style=" margin-left: 10px; margin-top: 9px;" -->
                     <span class="under"> {{contributors[0].userName}}</span> /
                     <span class="under"> {{projectData.projectName}} </span>
                 </span>
             </div>
             <div *ngIf="hasAccesToSendRequest()">
                 <span *ngIf="!hasSentRequest()" class="chip" (click)="sendRequest()">Request</span>
-                <span *ngIf="hasSentRequest()" class="chip" >Requested</span>
+                <span *ngIf="hasSentRequest()" class="chip">Requested</span>
             </div>
         </div>
         <div style="border-top: 1px solid rgb(36, 36, 36); margin: 20px 0px;">
@@ -57,12 +57,12 @@
                     <div *ngIf="isCurrTeamOpen">
                         <div class="userCard" *ngFor="let user of contributors; let i = index;">
                             <div style="display: flex;">
-                                <div style="margin-right: 14px;">
+                                <div style="margin-right: 24px;">
                                     <img class="profilePic" [src]="user.profilePicture" />
                                 </div>
-                                <div>
-                                    <span>
-                                        <span class="bl" style="font-size: 22px;">{{ user.name }}</span>
+                                <div style="width: 100%;">
+                                    <span style="display: flex; justify-content: space-between;">
+                                        <span class="bl username" style="font-size: 22px;" >{{ user.name }}</span>
                                         <span class="secondary" style="margin-left: 40px;">
                                             <span class="chip" *ngIf="user.userId == projectData.projectAdmin"> Admin
                                             </span>
@@ -70,12 +70,15 @@
                                             </span>
                                         </span>
                                     </span>
+
                                     
-                                    <br>
                                     <span class="secondary">{{ user.userName }}</span>
                                     <br> <br>
-                                    <div style="margin-bottom: 10px;" class="secondary">{{
-                                        user.address }}</div>
+                                    <div style="margin-bottom: 10px; display: flex; align-items: center;" class="secondary">
+                                        <img width="18px" height="18px" style="padding: 4px 0px; margin-right: 6px;"
+                                            src="data:image/png;base64,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">
+                                        {{user.address }}
+                                    </div>
 
                                 </div>
                             </div>
