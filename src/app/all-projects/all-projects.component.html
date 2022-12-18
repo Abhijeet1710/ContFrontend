@@ -29,7 +29,7 @@
                 <h3 class="projName" (click)="openProject(project)">  {{project.projectName}} </h3>
                 <span style="font-weight: lighter;" class="secondary"> {{project.projectDescription}} </span>
                 <div class="lg" style="margin-top: 8px;">
-                    <span style="margin: 10px 6px 10px 0px;" class="chip"> {{project.techStackRequire}} </span>
+                    <span style="margin: 10px 6px 10px 0px;" class="chip" *ngFor = "let t of project.techStackRequire"> {{t}} </span>
                 </div>
                 <div style="display: flex; justify-content: space-between;">
                     <span class="hc">
