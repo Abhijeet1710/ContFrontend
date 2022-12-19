@@ -169,3 +169,5 @@ export class DashboardComponent implements OnInit {
   //   }
 
   // ];
+
+  // https://img.freepik.com/premium-vector/man-avatar-profile-round-icon_24640-14044.jpg?w=2000

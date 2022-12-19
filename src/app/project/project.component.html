@@ -5,14 +5,19 @@
     <div *ngIf="projectData && contributors[0]">
         <div class="bl vc" style="font-size: 18px; display: flex; justify-content: space-between;">
             <div *ngIf="contributors[0]" style="display: flex;">
-                <!-- <img class="profilePic" [src]="contributors[0].profilePicture"> -->
-                <span> <!-- style=" margin-left: 10px; margin-top: 9px;" -->
-                    <span class="under"> {{contributors[0].userName}}</span> /
-                    <span class="under"> {{projectData.projectName}} </span>
+                <img width="26px" height="26px" style="margin-right: 8px;"
+                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABmJLR0QA/wD/AP+gvaeTAAAEOElEQVR4nO2dv69URRTHP0fBBnxESkMBCYnxvUhIRIKNFdBgjL+DtWKvzasMTyqtjCE2JPwNQKH8MJrYECrjjwhPKuIzFmAw/Oh4ecfiXl4Q9+3enTlzZ+7s+STb7O6cc+b73bkze+fuXnAcx3Ecx3EcZ9YQ64CqugB8ABwCdgJbrHN04BZwHTgHnBKROxlq6BdVfUpVT6rqqpbF36p6NLc+SdFG/G8zCz2ONVX9JLdOydDmkz8ElnJrZY6qLmh5h51xFGXCEwYxjgFPGsTpi+Oq+lnuIh5iYcAhgxiWfNrhPYuljYRgVPVe5kPKf2hrWuz49mJGQjApxQzhkbpmw4SUYobwWG31m5BSzBBG1Fe3CSnFDGGDGus1IaWYIYyps04TUooZwoRa6zMhpZghdKi3LhNSihlCx5rrMSGlmCFMUXcdJqQUM4Qpax++CSnFDCGg/mGbkFLMEAL7MFwTUooZQkQ/hmlCSjFDiOzLUsc05WxvphQzBIP+dDFhTVXfs9Av+rIUi05bIiIWfVoEJh1q/gF2i8jtmFwWO2JFoapPx8YQkc+ZvLP2DPB+bK7qDAAOWgQRkSUmm/CaRa4oEh7OQ1lW1e2G/Rs3J9y0yhNTYImsqOo7qjpn1MeNTFiLjV3dJNw3sZN+jXPAoHADMuMGZMYNyIwbkBk3IDNuQGbcgMy4AZlxAzLjBmSmVANWgLeBufbxJvB7j+17o8STcSvA3sd3mrQ5xfwzsCNx+6mo8WTcR6O2+drnPu6hfa+UOALmROTeBrnmgEl/OxDbfipqHAHjiP3AmP83RiwlGjBuT7fLfm9s+2GRYDtx5J6uqm5X1es9tJ+KflQeg3WHWtb3dNvHWzqdeLHtOxOrX4mT8KCYtUm4OtyAzLgBmXEDMuMGZKZUA84D7wIHgA+B74FpVlsKfNe2PdDGumBcowklLkNPiMjxEXl2AkeAl4EF4FlgW/vyHeAv4DfgMvCNiNwYEeMEYPrrlthlaGkG/AjsE5Ek3y1UVdoce61i1vY94Ewq8QHa2GdTxQ+hNAPu95Bj5KnqXJRmwEs95NjfQ47OlDYHPAD2i8hPhjHXUdUXgSvAJquYtc0Bm4GLqvp6O2GaoKqiqm/QLG/NxLegtBHwKMvAKZqJ+X9Lyi6o6i6aKyKOAc8Z1rZObcvQjbgG/AD8ClwF/qRZ+99tX99Gc/nJDmAe2AO8AjyfurBZMaBYapsDZg43IDNuQGbcgMy4AZlxAzLjBmTGwoCizi72zN3JbxmPhQF/GMQYKtF9tzDgkkGMoRK9z2xxKmIe+IVh3UnJglXgBRFZjgkSPQJE5CrwVWycAXIyVnww+sGCqm4Gvqa8W1ql4hLwqog8iA1ksgxtCzkCfEkzNGtlFfgCI/Ehze1s52n+zvEwze1st1rn6Jn7wA3gInBaRK5lrsdxHMdxHMdxnIHzLyEdVWVYu5zNAAAAAElFTkSuQmCC">
+                <span class="admin_projectName"> <!-- style=" margin-left: 10px; margin-top: 9px;" -->
+                    <span><span class="under"> {{contributors[0].userName}}</span> / </span>
+                    <span class="under"> {{ projectData.projectName}} </span>
                 </span>
             </div>
             <div *ngIf="hasAccesToSendRequest()">
-                <span *ngIf="!hasSentRequest()" class="chip" (click)="sendRequest()">Request</span>
+                <span *ngIf="sendingRequestInprogres" class="chip">
+                    <img class="loader" width="14px" height="14px" style="padding: 0px;"
+                    src="../../assets//loader1.png" />
+                </span>
+                <span *ngIf="!hasSentRequest() && !sendingRequestInprogres" class="chip" (click)="sendRequest()">Request</span>
                 <span *ngIf="hasSentRequest()" class="chip">Requested</span>
             </div>
         </div>

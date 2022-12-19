@@ -94,7 +94,23 @@
 .filled {
     background-color: #1a2028;
 }
+.admin_projectName {
+    display: flex;
+    flex-direction: column;
+}
 
+.loader{
+    animation-name: rotate;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    border-radius: 50%;
+}
+
+@keyframes rotate{
+    from{ transform: rotate(-360deg); }
+    to{ transform: rotate(360deg); }
+}
 
 @media only screen and (min-width: 1000px) { 
     .main {
@@ -131,4 +147,9 @@
         width: 50px;
     }
 
+    
+    .admin_projectName {
+        display: flex;
+        flex-direction: row;
+    }
 }

@@ -15,6 +15,7 @@ export class ProjectComponent implements OnInit {
   isCurrTeamOpen = false;
   isRequestsOpen = false;
   isLikedByOpen = false;
+  sendingRequestInprogres = false;
 
   contributors: any = [];
   likedBy: any = [];
@@ -99,15 +100,19 @@ export class ProjectComponent implements OnInit {
     return (this.isAdmin);
   }
 
-  sendRequest() {
+  sendRequest() { 
+    if(this.sendingRequestInprogres) return;
+    this.sendingRequestInprogres = true;
+
     this.projectService.sendRequest(this.projectData.projectId, this.userData.userId).subscribe(
       (res) => {
         console.log(res);
+        this.sendingRequestInprogres = false;
         this.ngOnInit();
       },
       (err) => {
         console.log(err);
-
+        this.sendingRequestInprogres = false;
       }
     )
   }
