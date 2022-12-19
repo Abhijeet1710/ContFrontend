@@ -21,16 +21,12 @@ export class DashboardComponent implements OnInit {
   participatedProjects:any;
 
   all: any;
-  user:any;
 
   constructor(private router: Router, private _snackBar: MatSnackBar, private dashboardService: DashboardService) {
-    this.user = JSON.parse(localStorage.getItem('user'));
+    let user = JSON.parse(localStorage.getItem('user'));
     
-    if (!this.user) {
-      router.navigate(['SignIn'])
-    }else {
-      // this.userData = { ...user };
-    }
+    if (!user) router.navigate(['SignIn'])
+    this.userData = {...JSON.parse(localStorage.getItem('user'))};
   }
 
   ngOnInit(): void {
@@ -39,17 +35,15 @@ export class DashboardComponent implements OnInit {
     let pp = [];
     let ppp = [];
 
-    this.dashboardService.getUser(this.user.userId).subscribe(
-      (res) => {
-        console.log(res);
-        
-        this.userData = res.data[0];
-      },
-      (err) => {
-        console.log(err);
-        
-      }
-    )
+    // this.dashboardService.getUser(this.user.userId).subscribe(
+    //   (res) => {
+    //     console.log(res);
+    //     this.userData = res.data[0];
+    //   },
+    //   (err) => {
+    //     console.log(err);
+    //   }
+    // )
 
     this.dashboardService.getAllProjects().subscribe(
       (res: any) => {
@@ -76,10 +70,10 @@ export class DashboardComponent implements OnInit {
         this.participatedPopularProjects = ppp;
         this.participatedProjects = pp;
 
-        console.log(this.myProjects);
-        console.log(this.myPopularProjects);
-        console.log(this.participatedProjects);
-        console.log(this.participatedPopularProjects);
+        // console.log(this.myProjects);
+        // console.log(this.myPopularProjects);
+        // console.log(this.participatedProjects);
+        // console.log(this.participatedPopularProjects);
         
       },
       (err) => {
@@ -110,7 +104,6 @@ export class DashboardComponent implements OnInit {
         this.closeEditProfile();
       }, (err) => {
         console.log(err.error.message);
-
       })
   }
 
