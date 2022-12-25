@@ -115,8 +115,8 @@
 }
 
 .btnCreate {
-    width: 130px;
-    height: 40px;
+    width: 100px;
+    height: 30px;
     background-color: rgb(5, 138, 5);
     border-radius: 4px;
     margin-right: 20px;
@@ -126,10 +126,10 @@
 }
 
 .btnCancel {
-    width: 130px;
+    width: 100px;
     cursor: pointer;
     color: white;
-    height: 40px;
+    height: 30px;
     background-color: transparent;
     outline: none;
     border: 1px solid #28374d;

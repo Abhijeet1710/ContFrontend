@@ -1,14 +1,16 @@
 <div class="overviewContent">
-    <div class="secOne" *ngIf="!editingAboutMe">
-        <div style="display: flex; justify-content: space-between;">
-            <span style="font-size: 16px; margin-bottom: 10px;"> {{userData.userName}} / README </span>
-            <div>
-                <img (click)=" editingAboutMe = true " width="16px" height="16px" style="cursor: pointer; "
-                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAyklEQVR4nO3VMUoDQRSA4Q3mDhb2CikTa8t0XiLYe4FAAhJrK8F4B89iivSKGkhIn3SfLDxhWCzUnanM3ywzsN+DV+xWVYYwxRvmOMthNvG0Pa6rQnjaVUm8bofTUvhX85J43UdJvG5ywL/rsJb/vJbhL/Hpj/EY8IhF/anFJjd+hDXGcT7BcxY8wIt4uZfcHeO9NR7YHVboNO5HOfAOXgK5j3MfN1i2wmPAeWMN23iu4yc+/DMeA24T/BUPuES3FZwMeMIMgyxgo0+WPrnWbKTDMgAAAABJRU5ErkJggg==">
-            </div>
+    <div style="display: flex; justify-content: space-between; margin: 20px 0px;">
+        <span style="font-size: 16px; margin-bottom: 10px;"> {{userData.userName}} / README </span>
+        <div>
+            <img (click)=" editingAboutMe = true " width="16px" height="16px" style="cursor: pointer; "
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAyklEQVR4nO3VMUoDQRSA4Q3mDhb2CikTa8t0XiLYe4FAAhJrK8F4B89iivSKGkhIn3SfLDxhWCzUnanM3ywzsN+DV+xWVYYwxRvmOMthNvG0Pa6rQnjaVUm8bofTUvhX85J43UdJvG5ywL/rsJb/vJbhL/Hpj/EY8IhF/anFJjd+hDXGcT7BcxY8wIt4uZfcHeO9NR7YHVboNO5HOfAOXgK5j3MfN1i2wmPAeWMN23iu4yc+/DMeA24T/BUPuES3FZwMeMIMgyxgo0+WPrnWbKTDMgAAAABJRU5ErkJggg==">
         </div>
-        <div style="border-top: 1px solid rgb(36, 36, 36); margin: 6px 0px;"></div>
-        <div class="tertiory" style="margin: 30px 0px;">
+    </div>
+
+    <div class="secOne" *ngIf="!editingAboutMe && aboutMe.length > 1">
+
+        <!-- <div style="border-top: 1px solid rgb(36, 36, 36); margin: 6px 0px;"></div> -->
+        <div class="tertiory" style="margin: 10px 0px;">
             <span *ngFor="let pt of aboutMe"> <span> - {{pt}} </span> <br> </span>
         </div>
     </div>

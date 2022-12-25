@@ -22,8 +22,8 @@ export class OverviewComponent implements OnInit {
   ngOnInit(): void {
     this.loadUser();
 
-    console.log(this.myPopularProjects);
-    console.log(this.participatedPopularProjects);
+    // console.log(this.myPopularProjects);
+    // console.log(this.participatedPopularProjects);
   }
 
   updateAboutMe() {
@@ -48,7 +48,7 @@ export class OverviewComponent implements OnInit {
   loadUser = () => {
     const user = JSON.parse(localStorage.getItem('user'));
 
-    console.log(user);
+    // console.log(user);
 
     this.userData = { ...user };
     this.aboutMe = this.userData.aboutMe.split(",");
