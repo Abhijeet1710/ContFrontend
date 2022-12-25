@@ -27,6 +27,9 @@ export class ProjectComponent implements OnInit {
   isContributor = false;
   isUser = true;
 
+  alreadyLiked = false;
+  LikeCount = 0;
+
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private projectService: ProjectService) {
     const user = JSON.parse(localStorage.getItem('user'));
 
@@ -132,5 +135,15 @@ export class ProjectComponent implements OnInit {
         this.acceptingRequestInprogres = false;
       }
     )
+  }
+
+  toggelLike() {
+    if(this.alreadyLiked) {
+      this.alreadyLiked = false;
+      this.LikeCount -= 1;
+    }else {
+      this.alreadyLiked = true;
+      this.LikeCount += 1;
+    } 
   }
 }

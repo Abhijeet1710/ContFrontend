@@ -9,18 +9,31 @@
                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABmJLR0QA/wD/AP+gvaeTAAAEOElEQVR4nO2dv69URRTHP0fBBnxESkMBCYnxvUhIRIKNFdBgjL+DtWKvzasMTyqtjCE2JPwNQKH8MJrYECrjjwhPKuIzFmAw/Oh4ecfiXl4Q9+3enTlzZ+7s+STb7O6cc+b73bkze+fuXnAcx3Ecx3EcZ9YQ64CqugB8ABwCdgJbrHN04BZwHTgHnBKROxlq6BdVfUpVT6rqqpbF36p6NLc+SdFG/G8zCz2ONVX9JLdOydDmkz8ElnJrZY6qLmh5h51xFGXCEwYxjgFPGsTpi+Oq+lnuIh5iYcAhgxiWfNrhPYuljYRgVPVe5kPKf2hrWuz49mJGQjApxQzhkbpmw4SUYobwWG31m5BSzBBG1Fe3CSnFDGGDGus1IaWYIYyps04TUooZwoRa6zMhpZghdKi3LhNSihlCx5rrMSGlmCFMUXcdJqQUM4Qpax++CSnFDCGg/mGbkFLMEAL7MFwTUooZQkQ/hmlCSjFDiOzLUsc05WxvphQzBIP+dDFhTVXfs9Av+rIUi05bIiIWfVoEJh1q/gF2i8jtmFwWO2JFoapPx8YQkc+ZvLP2DPB+bK7qDAAOWgQRkSUmm/CaRa4oEh7OQ1lW1e2G/Rs3J9y0yhNTYImsqOo7qjpn1MeNTFiLjV3dJNw3sZN+jXPAoHADMuMGZMYNyIwbkBk3IDNuQGbcgMy4AZlxAzLjBmSmVANWgLeBufbxJvB7j+17o8STcSvA3sd3mrQ5xfwzsCNx+6mo8WTcR6O2+drnPu6hfa+UOALmROTeBrnmgEl/OxDbfipqHAHjiP3AmP83RiwlGjBuT7fLfm9s+2GRYDtx5J6uqm5X1es9tJ+KflQeg3WHWtb3dNvHWzqdeLHtOxOrX4mT8KCYtUm4OtyAzLgBmXEDMuMGZKZUA84D7wIHgA+B74FpVlsKfNe2PdDGumBcowklLkNPiMjxEXl2AkeAl4EF4FlgW/vyHeAv4DfgMvCNiNwYEeMEYPrrlthlaGkG/AjsE5Ek3y1UVdoce61i1vY94Ewq8QHa2GdTxQ+hNAPu95Bj5KnqXJRmwEs95NjfQ47OlDYHPAD2i8hPhjHXUdUXgSvAJquYtc0Bm4GLqvp6O2GaoKqiqm/QLG/NxLegtBHwKMvAKZqJ+X9Lyi6o6i6aKyKOAc8Z1rZObcvQjbgG/AD8ClwF/qRZ+99tX99Gc/nJDmAe2AO8AjyfurBZMaBYapsDZg43IDNuQGbcgMy4AZlxAzLjBmTGwoCizi72zN3JbxmPhQF/GMQYKtF9tzDgkkGMoRK9z2xxKmIe+IVh3UnJglXgBRFZjgkSPQJE5CrwVWycAXIyVnww+sGCqm4Gvqa8W1ql4hLwqog8iA1ksgxtCzkCfEkzNGtlFfgCI/Ehze1s52n+zvEwze1st1rn6Jn7wA3gInBaRK5lrsdxHMdxHMdxnIHzLyEdVWVYu5zNAAAAAElFTkSuQmCC">
                 <span class="admin_projectName"> <!-- style=" margin-left: 10px; margin-top: 9px;" -->
                     <span><span class="under"> {{contributors[0].userName}}</span> / </span>
-                    <span class="under"> {{ projectData.projectName}} </span>
+                    <span class="under" style="margin-right: 20px;"> {{ projectData.projectName}} </span>
+
+                    <span style="margin-right: 20px; font-size: 14px; max-width: fit-content;" class="chip" (click) = "toggelLike()">
+                        <span style="margin-right: 6px;">{{ LikeCount }}</span>
+                        <img width="14px" height="14px" *ngIf = "!alreadyLiked"
+                        src="data:image/png;base64,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">
+
+                        <img width="14px" height="14px" *ngIf = "alreadyLiked"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFWklEQVR4nO2dW4hVVRjHV6llmVkIPVjQhShjyktZZBeKpBfLp56sxi6mUTaOpdFbRIT4lnY/PQT1NmmmjV3QCCq7mEVEGVQEUShaeWm6WJn94uN8Q2eO55zZ++y99tpr7fWDeRk4s79v/c/s/15rfevbxngOMA/YqT/Xu46n0gDjgZ/4nx/ld67jqizAzRzJTa7jqizAOy0Eedt1XJUEmAr8S2t6XMdXOYDVtOdR1/FVCuA4YG8HQfYDx7uOszIACxidXtdxVgZgawJB3nUdZyUAzutg5s2c7zre4AEeIzlrXMdbBTPfl0KQaO6WBbmV9NxiNagqA7zfhSDvuY47SIAL6J4ZruMPDuCJDII87jr+qpt5MweACa7zCAbgdrJzm+s8ggH4MAdBPnCdRxAA08iPma7z8R7gqRwFedJ1Pl4DTAB+yVGQIWCi67y8BbiD/FnoOi9vAT6yIMg213l5CTAde1zoOj/vAJ6xKMjTrvPzCuCEnM28mV+juacTZDH2WWTvKxUYwMcFCLLddZ5eAMygOC5ynW/pAZ4tUJCa63x9MPOhAgURcz/RVA1gHHCK1uPOBuZq5Xof8KCWhT6fsN4qb7bqtVdrLH0a21yNdarGPs6UdKNoihQzA1foYRmpIuwHHpKyG+AFYFAT3QHsAg4TBgc1nx2a36Dmu0bz79fxmKfj06PjNbabWfFyYKVMmoABYLM8iQDfZtyti9TZp2O5Xcd2QMd6pY799GEx5N/yb/1QxB2iwWwR5BGHQURG8rAIcm2KWtmIPUSDOcO3LTGiPy1eLNIZGfsFzcYuXrJ7lA9G8udn4Kp2T1unAZ9YuGikNZ8DZySZLW9o8wci+fE6MCnpvOQonehE7CATyTEJp4kjhJmvs9NIPvyVuYISuAzYk1NAVTfvqzOJ0SDKmcAXrjPymK+Ac3IRo8nsX3GdmYe8kdi8uxBlDLDKdYYeUUu90tulMAvVoCKtOQQssS5EkyiXR7NvibT8uKZQMRpEOUs3ayJ1vgbOdSJGgygTdees6mwGTjJlIJo9tbLuuS+q2O7jISmKMGUGuFKbUVZhj3yO8QHgbOBLwuUbKQ8yPiEFaMAmwmMLcLLxETV7WWoOhVopzbvL4wU+m/0/wAOmgn0Sy8rIAoQQkLUd/OVuExrAi/jLgAkJ3aP3ucRoj+RgQkG6g+I/PSYUgHvwnyUmFIB1+M9aE5B/NL50xeeqkaNNxZtXlg3/O2UDSwmHPuM7wHrC4SXjMwH5R2MBg78+YrnFkiumGV/RY8KhsdT4CvAy4bHe+Ijca/XZPTT2eukjBXf1KZr6IX+fAJYVOEDrCl6eWWZ8A9hYwMDsBG5ouOZ1wHcFXHeD8dA/bPZHOawFB0c0RZb3F+qRCSlis8X+rs4IukLasFocjE+BSxLOgbZZjMOfPvLAfRYG4Hep/EjzzdT/1MWWmqLda3zBwtG3QeD0DPFIz6q1Oce00XhUHCf32DzYlWcJjjYW+z6n2A544SPArJw649Rs9EPUNy6s0uK38LuaAisyJvkZcGkBcc7U7m5ZWG7KToYC6z+0nccxBcY6VhdApTtpNwyaQP3jrdwP1qdvjPBacD4CXJwyod1lqpulbvo/pMxhlikrwP0pTFvaq042JQOYpEcokra2XWHKCvBqwqPDbs5xpz+Hn6S/yyZTRtQgO73z46Ca9rHGr47c/cBvHfIaKqR9RlpkfalD0G/KuUPjKdTPTEoO7Rh1ba1wgBtbBCqncXtNIAC9bU4YzzdlAzi1YcldTPu5Mpp2ViQnzW2417HkPMWUEVkABO6Ux18TONRv0XdlWfSMRCKRSCRiwuU/XDbQToEec68AAAAASUVORK5CYII=">
+                    </span>
+
+                    <div *ngIf="hasAccesToSendRequest()" style="margin-top: 6px; font-size: 14px;">
+
+                        <span *ngIf="sendingRequestInprogres" class="chip">
+                            <img class="loader" width="14px" height="14px" style="padding: 0px;"
+                                src="../../assets//loader1.png" />
+                        </span>
+                        <span *ngIf="!hasSentRequest() && !sendingRequestInprogres" class="chip"
+                            (click)="sendRequest()">Request</span>
+                        <span *ngIf="hasSentRequest()" class="chip">Requested</span>
+                    </div>
+
                 </span>
             </div>
-            <div *ngIf="hasAccesToSendRequest()">
-                <span *ngIf="sendingRequestInprogres" class="chip">
-                    <img class="loader" width="14px" height="14px" style="padding: 0px;"
-                        src="../../assets//loader1.png" />
-                </span>
-                <span *ngIf="!hasSentRequest() && !sendingRequestInprogres" class="chip"
-                    (click)="sendRequest()">Request</span>
-                <span *ngIf="hasSentRequest()" class="chip">Requested</span>
-            </div>
+
         </div>
         <div style="border-top: 1px solid rgb(36, 36, 36); margin: 20px 0px;">
         </div>
@@ -129,7 +142,7 @@
                                         </span>
                                         <span *ngIf="!acceptingRequestInprogres" class="chip"
                                             (click)="acceptRequest(user)">Accept</span>
-                                        
+
                                     </span>
 
 
