@@ -12,10 +12,12 @@ export class ProjectComponent implements OnInit {
   userData: any;
   projectId: any;
   projectData: any;
+
   isCurrTeamOpen = false;
   isRequestsOpen = false;
   isLikedByOpen = false;
   sendingRequestInprogres = false;
+  acceptingRequestInprogres = false;
 
   contributors: any = [];
   likedBy: any = [];
@@ -118,14 +120,16 @@ export class ProjectComponent implements OnInit {
   }
 
   acceptRequest(user) {
+    this.acceptingRequestInprogres = true;
     this.projectService.acceptRequest(this.projectData.projectId, user.userId).subscribe(
       (res) => {
         console.log(res);
         this.ngOnInit();
+        this.acceptingRequestInprogres = false;
       },
       (err) => {
         console.log(err);
-
+        this.acceptingRequestInprogres = false;
       }
     )
   }
