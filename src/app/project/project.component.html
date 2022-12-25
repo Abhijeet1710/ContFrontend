@@ -131,11 +131,6 @@
                                 <div style="width: 100%;">
                                     <span style="display: flex; justify-content: space-between;">
                                         <span class="bl username" style="font-size: 22px;">{{ user.name }}</span>
-                                        <!-- <span class="secondary" style="margin-left: 40px;">
-                                            <span class="secondary" *ngIf="hasAccesToAcceptRequest()">
-                                                <span class="chip" (click)="acceptRequest(user)"> Accept </span>
-                                            </span>
-                                        </span> -->
                                         <span *ngIf="acceptingRequestInprogres" class="chip">
                                             <img class="loader" width="14px" height="14px" style="padding: 0px;"
                                                 src="../../assets//loader1.png" />
@@ -167,8 +162,8 @@
                 <div class="" *ngIf="likedBy.length > 0">
                     <span (click)="isLikedByOpen = !isLikedByOpen" class="box" [ngClass]="{'filled': isLikedByOpen}">
                         <div style="display: flex; align-items: center;">
-                            <p> Current Team Members </p>
-                            <p class="chip" style="margin-left: 8px;">0{{ contributors.length }}</p>
+                            <p> Liked By </p>
+                            <p class="chip" style="margin-left: 8px;">0{{ likedBy.length }}</p>
                         </div>
                         <img *ngIf="!isLikedByOpen" width="20px" height="20px" style="margin-top: 14px;"
                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAA60lEQVRIie3UPUoDQRyG8WgRLAQbIfZ7ACtLrbxCSluvkCt4B0t7wcJSbSIkhWdIY6NgKYJIfjYTWCbrZHSnEeaB6f7v+8x+zAwGlUqlUgLc4wlNwc4mdN6lhla84bSA9ASvq9IcMXxh0kN6js92YWp4Zp1LDH8hHIZMzCwV2sV1R+gRBxnSfTx05G+xtym8hQmWUfgZR4ncIRZRZokLbG/adLtojPeo6ANnfWZz5cmn+OvbyZWPMO34bjdhxUwx6iVtyX/6U2OusFNEGm1g7WwGep35XPkxXlrSIrdcrrzBPKxi93qlUvlffANtCRmg5ZHN/QAAAABJRU5ErkJggg==">

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-participated-projects',
@@ -11,7 +12,7 @@ export class ParticipatedProjectsComponent implements OnInit {
   variable = "";
   filtered : any;
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit(): void {
     this.filtered = this.participatedProjects;
@@ -105,6 +106,11 @@ export class ParticipatedProjectsComponent implements OnInit {
   clearFilter() {
     this.variable = "";
     this.filtered = this.participatedProjects;
+  }
+
+  openProject(projectToOpen) {
+    console.log(projectToOpen);
+    this.router.navigate(['dashboard/project/'+projectToOpen.projectId]);
   }
 
 }

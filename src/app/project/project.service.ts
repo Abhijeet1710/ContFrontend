@@ -26,4 +26,12 @@ export class ProjectService {
   acceptRequest(projectId, userId) : Observable<any> {
     return this.httpClient.post(`${this.url}/project/acceptRequest`, {userId, projectId});
   }
+
+  likeProject(projectId, userId) : Observable<any> {
+    return this.httpClient.post(`${this.url}/project/likeProject`, {userId, projectId});
+  }
+
+  unlikeProject(projectId, userId) : Observable<any> {
+    return this.httpClient.post(`${this.url}/project/unlikeProject`, {userId, projectId});
+  }
 }

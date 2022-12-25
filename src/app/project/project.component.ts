@@ -78,8 +78,15 @@ export class ProjectComponent implements OnInit {
         // Get Liked Bys
         this.projectService.getUsersPresentInArray(this.projectData.liked).subscribe(
           (res) => {
-            console.log(res);
+            console.log(res.data);
             this.likedBy = res.data;
+            this.LikeCount = this.likedBy.length;
+            
+            for (let i = 0; i < this.likedBy.length; i++) {
+              if(this.likedBy[i].userId == this.userData.userId) {
+                this.alreadyLiked = true;
+              }
+            }
           },
           (err) => {
             console.log(err);
@@ -141,9 +148,33 @@ export class ProjectComponent implements OnInit {
     if(this.alreadyLiked) {
       this.alreadyLiked = false;
       this.LikeCount -= 1;
+      
+      this.projectService.unlikeProject(this.projectData.projectId, this.userData.userId).subscribe(
+        (res) => {
+          console.log(res);
+          this.ngOnInit();
+        },
+        (err) => {
+          console.log(err);
+        }
+      )
+
     }else {
       this.alreadyLiked = true;
       this.LikeCount += 1;
-    } 
+
+      this.projectService.likeProject(this.projectId, this.userData.userId).subscribe(
+        (data) => {
+          console.log("Like "+JSON.stringify(data));
+          this.ngOnInit();
+        },
+        (err) => {
+          console.log(err);
+          
+        }
+      );
+    }
+
+    
   }
 }
