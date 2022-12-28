@@ -1,18 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs"
+import { backendRoot } from "../backendUrl";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CreateNewService {
 
-  url = "https://contbackend.onrender.com";
-
   constructor(private http : HttpClient) { }
 
   // C
   addNewProject = (projectData) : Observable<any> => {
-    return this.http.post(`${this.url}/project/addNewProject`, projectData);
+    return this.http.post(`${backendRoot}/project/addNewProject`, projectData);
   }
 }

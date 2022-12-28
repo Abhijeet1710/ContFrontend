@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { backendRoot } from "../backendUrl";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectService {
 
-  url = "https://contbackend.onrender.com";
+  url = backendRoot;
 
   constructor(private httpClient : HttpClient) { }
 
