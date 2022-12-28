@@ -18,7 +18,10 @@ export class LoginComponent implements OnInit {
   email:String;
 
   constructor(private route: Router, private _snackBar: MatSnackBar, private loginService : LoginService) { 
-    console.log(localStorage.getItem('user'));
+    let user = localStorage.getItem('user');
+    if(user) {
+      route.navigate(['dashboard']);
+    }
   }
 
   ngOnInit(): void {

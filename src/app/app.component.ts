@@ -11,7 +11,9 @@ export class AppComponent {
   menuOpt1 = ""
 
   constructor(private router: Router) {
+
   }
+  
   ngOnInit(): void {}
 
   logout() {
