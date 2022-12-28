@@ -35,16 +35,6 @@ export class DashboardComponent implements OnInit {
     let pp = [];
     let ppp = [];
 
-    // this.dashboardService.getUser(this.user.userId).subscribe(
-    //   (res) => {
-    //     console.log(res);
-    //     this.userData = res.data[0];
-    //   },
-    //   (err) => {
-    //     console.log(err);
-    //   }
-    // )
-
     this.dashboardService.getAllProjects().subscribe(
       (res: any) => {
         this.all = res.data;
