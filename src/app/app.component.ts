@@ -19,8 +19,12 @@ export class AppComponent {
   logout() {
 
     localStorage.removeItem('user');
-    this.router.navigate(['/SignIn']);
+    this.navigateToSignIn();
 
+  }
+
+  navigateToSignIn() {
+    this.router.navigate(['/SignIn']);
   }
 
   openYourProfile() {

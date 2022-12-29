@@ -65,6 +65,20 @@
      text-decoration: underline;
      cursor: pointer;
  }
+ 
+.btnCancel {
+    background-color: #161B22;
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin-right: 20px;
+    cursor: pointer;
+    border: 1px solid rgb(36, 36, 36);
+    color: white;
+}
+
+.btnCancel:hover {
+    background-color: #252e3a;
+}
 
  @media only screen and (min-width: 1000px) {
      .view {

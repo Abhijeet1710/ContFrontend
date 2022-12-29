@@ -34,6 +34,9 @@
                     </mat-menu>
                 </div>
             </div>
+            <div *ngIf = "!isUserLoggedIn()">
+                <button class="btnCancel" (click)="navigateToSignIn()">Sign In</button>
+            </div>
         </div>
     </div>
 
