@@ -130,7 +130,7 @@
                                 </div>
                                 <div style="width: 100%;">
                                     <span style="display: flex; justify-content: space-between;">
-                                        <span class="bl username" style="font-size: 22px;" [href]="getUserLink(user.userName)" target="_blank">{{ user.name }}</span>
+                                        <a class="bl username" style="font-size: 22px;" [href]="getUserLink(user.userName)" target="_blank">{{ user.name }}</a>
                                         <span *ngIf="acceptingRequestInprogres" class="chip">
                                             <img class="loader" width="14px" height="14px" style="padding: 0px;"
                                                 src="../../assets//loader1.png" />
