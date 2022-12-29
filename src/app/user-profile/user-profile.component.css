@@ -19,6 +19,11 @@
     padding: 0px 10px;
 }
 
+.tagLine {
+    display: flex; flex-direction:column;
+    justify-content: start;
+}
+
 .profilePic {
     border-radius: 50%;
     height: 60px;
@@ -167,56 +172,8 @@ form > label, form > div > label {
     /* background-color: #161b22; */
 }
 
-@media only screen and (min-width: 1000px) {
-    .dashboardBody {
-        display: flex;
-        justify-content: space-between;
-    }
-    .left {
-        margin-top: 45px;
-        width: 27%;
-
-    }
-
-    form > input, textarea {
-        padding: 6px 10px;
-        margin-bottom: 10px;
-    }
-    
-    .right {
-        width: 68%;
-    }
-    .profilePic {
-        height: 300px;
-        width: 300px;
-    }
-    .imageDiv {
-        display: flex;
-        justify-content: center;
-    }
-    .name-username-lg {
-        display: block;
-    }
-
-    .name-username-sm {
-        display: none;
-    }
-    .info-div {
-        margin: 20px 0px 20px 0px;
-    }
-
-    .vchc {
-        width: 100%;
-        height: 60vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .paddingLR {
-        padding: 0px 0px;
-    }
-
+.sm {
+    display: block;
 }
 
 .overviewContent {
@@ -378,6 +335,65 @@ form > label, form > div > label {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 20px;
+    }
+
+    .dashboardBody {
+        display: flex;
+        justify-content: space-between;
+    }
+    .left {
+        margin-top: 45px;
+        width: 27%;
+
+    }
+
+    form > input, textarea {
+        padding: 6px 10px;
+        margin-bottom: 10px;
+    }
+    
+    .right {
+        width: 68%;
+    }
+    .profilePic {
+        height: 300px;
+        width: 300px;
+    }
+    .imageDiv {
+        display: flex;
+        justify-content: center;
+    }
+    .name-username-lg {
+        display: block;
+    }
+
+    .name-username-sm {
+        display: none;
+    }
+    .info-div {
+        margin: 20px 0px 20px 0px;
+    }
+
+    .vchc {
+        width: 100%;
+        height: 60vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .paddingLR {
+        padding: 0px 0px;
+    }
+
+    .tagLine {
+        display: flex; flex-direction:column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sm {
+        display: none;
     }
 }
     

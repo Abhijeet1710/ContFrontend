@@ -22,8 +22,8 @@
                 <h1 class="name"> {{userData.name}} </h1>
                 <p class="userName">{{userData.userName}}</p>
             </div>
-            <div style="display: flex; flex-direction:column; justify-content: center; align-items: center;"
-                class="paddingLR">
+            <div style=""
+                class="paddingLR tagLine">
                 <p> {{userData.tagLine}} </p>
 
             </div>
@@ -62,6 +62,8 @@
         </div>
     </div>
 
+    <div class="sm" style="border-top: 1px solid rgb(68, 68, 68); margin: 10px 0px;"></div>
+
     <!-- Main Content -->
     <div class="right">
         <div class="overviewContent">
@@ -69,7 +71,7 @@
                 <span style="font-size: 16px; margin-bottom: 10px;"> {{userData.userName}} / README </span>
             </div>
 
-            <div class="secOne" *ngIf="aboutMe.length > 0">
+            <div class="secOne" *ngIf="aboutMe.length > 1">
 
                 <!-- <div style="border-top: 1px solid rgb(36, 36, 36); margin: 6px 0px;"></div> -->
                 <div class="tertiory" style="margin: 10px 0px;">
@@ -77,7 +79,7 @@
                 </div>
             </div>
 
-            <span style="font-size: 18px;">My Popular Projects </span>
+            <span style="font-size: 18px;">Popular Projects </span>
             <div class="secTwo" *ngIf="myPopularProjects.length > 0">
                 <div class="card" *ngFor="let project of myPopularProjects">
                     <div>
@@ -102,12 +104,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="secondary cent" *ngIf="myPopularProjects.length == 0">
-                <span> Oops !! </span> <br>
-                <span> You have not created any project yet </span> <br> <br>
-                <button routerLink="/new" class="btnCreate">Create One</button>
             </div>
 
             <span style="font-size: 18px;"> Popular Participated Projects </span>
@@ -136,12 +132,6 @@
                     </div>
                 </div>
 
-            </div>
-
-            <div class="secondary cent" *ngIf="participatedPopularProjects.length == 0">
-                <span> Oops !! </span> <br>
-                <span> You have not participated in any project yet </span> <br> <br>
-                <button class="btnCreate">Participated Now</button>
             </div>
         </div>
     </div>
