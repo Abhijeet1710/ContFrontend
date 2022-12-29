@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ProjectComponent } from './project/project.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
@@ -12,7 +13,7 @@ const routes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
   {path: 'new', component: CreateNewComponent},
   {path: 'SignIn', component: LoginComponent},
-  {path: 'UserProfile/:userName', component: PageNotFoundComponent},
+  {path: 'UserProfile/:userName', component: UserProfileComponent},
   {path: '**', redirectTo: 'dashboard', pathMatch: 'full'}
 ];
 

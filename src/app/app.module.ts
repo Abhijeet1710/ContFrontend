@@ -25,6 +25,7 @@ import { PopularProjectComponent } from './popular-project/popular-project.compo
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { ProjectComponent } from './project/project.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ProjectComponent } from './project/project.component';
     AllProjectsComponent,
     ChatComponent,
     PopularProjectComponent,
-    ProjectComponent
+    ProjectComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

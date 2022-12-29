@@ -9,19 +9,19 @@ import { backendRoot } from "../backendUrl";
 })
 export class DashboardService {
 
-  url = "https://contbackend.onrender.com";
+  url = backendRoot;
 
   constructor(private http : HttpClient) { }
 
   updateUserData = (userData) : Observable<any> => {
-    return this.http.post(`${backendRoot}/user/update`, userData);
+    return this.http.post(`${this.url}/user/update`, userData);
   }
 
   getAllProjects = () : Observable<any> => {
-    return this.http.get(`${backendRoot}/projects`);
+    return this.http.get(`${this.url}/projects`);
   }
 
   getUser = (userId) : Observable<any> => {
-    return this.http.get(`${backendRoot}/user/${userId}`);
+    return this.http.get(`${this.url}/user/${userId}`);
   }
 }

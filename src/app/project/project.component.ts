@@ -177,4 +177,8 @@ export class ProjectComponent implements OnInit {
 
     
   }
+
+  getUserLink(userName) {
+    return `https://contui.netlify.app/UserProfile/${userName}`
+  }
 }

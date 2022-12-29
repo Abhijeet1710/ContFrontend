@@ -1,0 +1,383 @@
+.left {
+    width: 98%;
+    margin: auto;
+}
+
+.right {
+    width: 100%;
+}
+
+.vchc {
+    margin-top: 80px;
+    margin-bottom: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paddingLR {
+    padding: 0px 10px;
+}
+
+.profilePic {
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    margin-bottom: 20px;
+    border: 1px solid black;
+}
+
+.loader{
+    animation-name: rotate;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    border-radius: 50%;
+}
+
+@keyframes rotate{
+    from{ transform: rotate(-360deg); }
+    to{ transform: rotate(360deg); }
+}
+
+p, span {
+    font-weight: lighter;
+}
+
+.name, .userName, .sp {
+    margin: 0px;
+}
+
+.userName {
+    font-size: 24px;
+}
+
+.editProfileBtn {
+    width: 100%;
+    border: 1px solid rgb(68, 68, 68);
+    outline: none;
+    background-color: #161B22;
+    color: white;
+    padding: 7px 0px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.editProfileBtn:hover {
+    background-color: #2f3742;
+}
+
+.border {
+    border: 1px solid red;
+}
+
+.hc {
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.imageDiv {
+    display: flex;
+    justify-content: start;
+    margin: 20px 0px 0px 20px;
+}
+
+.name-username-lg {
+    display: none;
+}
+
+.name-username-sm {
+    display: block;
+    margin-left: 20px;
+}
+
+.info-div {
+    margin: 20px 0px 20px 20px;
+}
+
+.showDetails {
+    display: none;
+}
+
+.vc {
+    display: flex;
+    height: 40px;
+    justify-content: center;
+}
+
+form > input, textarea, form > div > input {
+    width: 92%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 8px 10px;
+    border-radius: 4px;
+    border: 1px solid rgb(68, 68, 68);
+    color: white;
+    margin-bottom: 8px;
+}
+
+form > input:focus, form > textarea:focus, form > div> input:focus {
+    outline: 1px solid blueviolet;
+}
+
+.saveBtn {
+    width: 100px;
+    height: 35px;
+    cursor: pointer;
+    color: white;
+    padding: 8px 24px;
+    background-color: green;
+    outline: none;
+    border: none;
+
+    border-radius: 6px;
+    margin-top: 14px;
+}
+
+.cancalBtn {
+    cursor: pointer;
+    color: white;
+    height: 35px;
+    padding: 8px 24px;
+    background-color: transparent;
+    outline: none;
+    border: 1px solid #28374d;
+
+    border-radius: 6px;
+    margin-top: 14px;
+}
+
+.saveBtn:hover {
+    background-color: rgb(1, 117, 1);
+}
+
+.cancalBtn:hover {
+    background-color: #161b22;;
+}
+
+form > label, form > div > label {
+    color: rgb(124, 124, 124);
+}
+
+.editSec {
+    padding: 10px 20px;
+    border-radius: 8px;
+    /* background-color: #161b22; */
+}
+
+@media only screen and (min-width: 1000px) {
+    .dashboardBody {
+        display: flex;
+        justify-content: space-between;
+    }
+    .left {
+        margin-top: 45px;
+        width: 27%;
+
+    }
+
+    form > input, textarea {
+        padding: 6px 10px;
+        margin-bottom: 10px;
+    }
+    
+    .right {
+        width: 68%;
+    }
+    .profilePic {
+        height: 300px;
+        width: 300px;
+    }
+    .imageDiv {
+        display: flex;
+        justify-content: center;
+    }
+    .name-username-lg {
+        display: block;
+    }
+
+    .name-username-sm {
+        display: none;
+    }
+    .info-div {
+        margin: 20px 0px 20px 0px;
+    }
+
+    .vchc {
+        width: 100%;
+        height: 60vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .paddingLR {
+        padding: 0px 0px;
+    }
+
+}
+
+.overviewContent {
+    width: 92%;
+    margin: auto;    
+    margin-top: 20px;
+}
+
+.secOne {
+    padding: 20px;
+    border: 1px solid rgb(68, 68, 68);
+    border-radius: 8px;
+    margin: 10px 0px 30px 0px;
+}
+
+.loader{
+    animation-name: rotate;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    border-radius: 50%;
+}
+
+@keyframes rotate{
+    from{ transform: rotate(-360deg); }
+    to{ transform: rotate(360deg); }
+}
+
+
+.aboutMeTA {
+    width: 100%;
+    height: 70PX;
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    color: white;
+}
+
+.center {
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border: 1px solid rgb(68, 68, 68);
+    border-radius: 8px;
+    padding: 30px 10px;
+
+    text-align: center;
+}
+
+.cent {
+    width: 98%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border: 1px solid rgb(68, 68, 68);
+    border-radius: 8px;
+    padding: 30px 0px;
+    text-align: center;
+}
+
+.secTwo {
+    margin: 10px 0px 40px 0px;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.card {
+    border: 1px solid rgb(68, 68, 68);
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.text-with-dots {
+    border: 1px solid red;
+    height: 70px;
+    text-overflow: ellipsis;
+
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+
+}
+
+.hc {
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.projName {
+    /* color: #7AAEEB; */
+    color: #0077ff;
+    cursor: pointer;
+    font-weight: bold;
+
+}
+
+.backOnHov {
+    height: 28px;
+    width: 28px;
+    border-radius: 14px;
+}
+
+.backOnHov:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+.projName:hover {
+    color: #0077ff;
+    text-decoration: underline;
+}
+
+.btnCreate {
+    width: 100px;
+    height: 30px;
+    background-color: rgb(5, 138, 5);
+    border-radius: 4px;
+    margin-right: 20px;
+    cursor: pointer;
+    border: none;
+    color: white;
+}
+
+.btnCancel {
+    width: 100px;
+    cursor: pointer;
+    color: white;
+    height: 30px;
+    background-color: transparent;
+    outline: none;
+    border: 1px solid #28374d;
+
+    border-radius: 6px;
+    margin-top: 14px;
+}
+.btnCancel:hover {
+    background-color: #161b22;;
+}
+
+.btnCreate:hover {
+    background-color: rgb(2, 109, 2);
+}
+
+
+@media only screen and (min-width: 1000px) { 
+
+    .overviewContent {
+        width: 100%;
+    }
+
+    .secTwo {
+    
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+}
+    
