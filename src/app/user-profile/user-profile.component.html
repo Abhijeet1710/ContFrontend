@@ -22,11 +22,14 @@
                 <h1 class="name"> {{userData.name}} </h1>
                 <p class="userName">{{userData.userName}}</p>
             </div>
-            <div style=""
+            <div
                 class="paddingLR tagLine">
                 <p> {{userData.tagLine}} </p>
 
             </div>
+            
+            <div style="border-top: 1px solid rgb(68, 68, 68); margin: 10px 0px;"></div>
+
             <div class="info-div">
                 <div class="hc" *ngIf="userData.company.length > 0">
                     <img width="18px" height="18px" style="padding: 4px 0px; margin-right: 6px;"
